@@ -1,11 +1,11 @@
 import Reveal from './Reveal';
 
 const metrics = [
-  { label: 'Tasa de conversión', width: 120, color: null, value: '+42%' },
-  { label: 'Velocidad de carga', width: 140, color: '#059669', value: '1.8s' },
-  { label: 'Tráfico orgánico', width: 100, color: null, value: '+67%' },
-  { label: 'Leads mensuales', width: 110, color: '#8B5CF6', value: '+89%' },
-  { label: 'Páginas / sesión', width: 90, color: '#059669', value: '3.4' },
+  { label: 'Tasa de conversión', width: 120, color: '#FF6B2C', value: '+42%' },
+  { label: 'Velocidad de carga', width: 140, color: '#00BFA6', value: '1.8s' },
+  { label: 'Tráfico orgánico', width: 100, color: '#E91E63', value: '+67%' },
+  { label: 'Leads mensuales', width: 110, color: '#7C4DFF', value: '+89%' },
+  { label: 'Páginas / sesión', width: 90, color: '#2979FF', value: '3.4' },
 ];
 
 const proofItems = [

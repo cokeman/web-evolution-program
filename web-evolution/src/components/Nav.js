@@ -12,7 +12,12 @@ export default function Nav() {
   return (
     <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
       <div className="container">
-        <a href="#hero" className="nav-logo">Web <span>Evolution</span> Program</a>
+        <a href="#hero" className="nav-logo">
+          <span className="nav-logo-dots">
+            <span></span><span></span><span></span>
+          </span>
+          Web <em>Evolution</em> Program
+        </a>
         <a href="#contacto" className="nav-cta">Solicitar reunión</a>
       </div>
     </nav>
