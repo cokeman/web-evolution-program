@@ -265,6 +265,22 @@ section { padding: 120px 0; position: relative; overflow: hidden; }
 .problem-card h3 { color: #fff; font-size: 1.125rem; margin-bottom: 8px; }
 .problem-card p { color: rgba(255,255,255,0.6); font-size: 0.9375rem; }
 
+.consequences-inline {
+  margin-top: 64px; padding: 32px; border-radius: var(--radius);
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  position: relative; z-index: 1;
+}
+.consequences-inline h3 { color: #fff; font-size: 1.125rem; margin-bottom: 20px; }
+.consequences-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.consequence-inline-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  color: rgba(255,255,255,0.7); font-size: 0.9375rem;
+}
+.consequence-inline-icon { flex-shrink: 0; font-size: 1.25rem; }
+@media (max-width: 640px) {
+  .consequences-list { grid-template-columns: 1fr; }
+}
+
 /* ═══════════════════════════════════════
    CONSEQUENCES — Warm yellow bg
    ═══════════════════════════════════════ */
@@ -331,6 +347,12 @@ section { padding: 120px 0; position: relative; overflow: hidden; }
 .service-feature:hover .service-feature-icon { transform: scale(1.12) rotate(4deg); }
 .service-feature h4 { font-size: 1rem; margin-bottom: 4px; }
 .service-feature p { font-size: 0.875rem; color: var(--color-text-secondary); }
+
+.process-inline { margin-top: 80px; }
+.process-inline-title {
+  text-align: center; font-size: 1.5rem; font-weight: 800;
+  color: var(--color-primary); margin-bottom: 40px;
+}
 
 /* ═══════════════════════════════════════
    PROCESS — White with colorful accents
@@ -454,9 +476,14 @@ section { padding: 120px 0; position: relative; overflow: hidden; }
    PRICING — White with colorful accents
    ═══════════════════════════════════════ */
 .pricing {
-  background: #fff;
+  background: radial-gradient(ellipse at center, #f0f4f8 1%, #e2e8f0 100%);
   position: relative;
 }
+.pricing-particles {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 0; overflow: hidden;
+}
+.pricing .container { position: relative; z-index: 1; }
 .pricing-decoration {
   position: absolute; width: 500px; height: 500px; border-radius: 50%;
   background: rgba(255,107,44,0.06); filter: blur(100px);
@@ -521,9 +548,9 @@ section { padding: 120px 0; position: relative; overflow: hidden; }
 .comparison-wrapper { overflow-x: auto; }
 .comparison-table {
   width: 100%; border-collapse: separate; border-spacing: 0;
-  background: rgba(255,255,255,0.8); backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur));
+  background: var(--color-bg);
   border-radius: var(--radius); overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.6); box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
 }
 .comparison-table th, .comparison-table td {
   padding: 16px 24px; text-align: left; border-bottom: 1px solid rgba(27,20,100,0.05);
@@ -539,6 +566,12 @@ section { padding: 120px 0; position: relative; overflow: hidden; }
 .comparison-table th:not(:first-child) { text-align: center; }
 .check { color: var(--color-teal); font-weight: 700; }
 .cross { color: #CBD5E1; }
+
+.comparison-inline { margin-top: 72px; }
+.comparison-inline-title {
+  text-align: center; font-size: 1.25rem; font-weight: 700;
+  color: var(--color-primary); margin-bottom: 32px;
+}
 
 /* ═══════════════════════════════════════
    CASE STUDY — Light pink bg
@@ -587,10 +620,20 @@ section { padding: 120px 0; position: relative; overflow: hidden; }
 .case-result-value { font-family: 'Space Grotesk', sans-serif; font-size: 1.75rem; font-weight: 800; color: var(--color-accent); }
 .case-result-label { font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 4px; }
 
+.case-results-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 64px; }
+.examples-inline { position: relative; z-index: 1; }
+.examples-inline-title {
+  text-align: center; font-size: 1.25rem; font-weight: 700;
+  color: var(--color-primary); margin-bottom: 32px;
+}
+@media (max-width: 640px) {
+  .case-results-row { grid-template-columns: 1fr 1fr; }
+}
+
 /* ═══════════════════════════════════════
    DIFFERENTIATORS — White
    ═══════════════════════════════════════ */
-.diff { background: #fff; }
+.diff { background: var(--color-yellow-light); }
 .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
 .diff-card { border-radius: var(--radius); padding: 32px; }
 .diff-card.traditional {
@@ -862,4 +905,5 @@ section { padding: 120px 0; position: relative; overflow: hidden; }
   .btn-glow, .btn-glow-white { animation: none; }
   .pricing-card.featured::before { animation: none; }
   .timeline-item::before { animation: none; }
+  .pricing-particles { display: none; }
 }

@@ -4,9 +4,7 @@ const benefits = [
   { num: '01', title: 'Más leads cualificados', desc: 'Cada mejora está orientada a generar más contactos comerciales desde la web. Más formularios, más llamadas, más oportunidades.' },
   { num: '02', title: 'Mejor posicionamiento SEO', desc: 'Mejoras continuas en contenido, velocidad y estructura que hacen que Google te posicione mejor cada mes.' },
   { num: '03', title: 'Mayor retorno de tu inversión web', desc: 'Tu web ya existe. En lugar de rehacerla cada 3 años, la evolucionas constantemente por una fracción del coste.' },
-  { num: '04', title: 'Sin gestión interna', desc: 'Nosotros analizamos, proponemos y ejecutamos. Tu equipo solo aprueba y valida. Sin carga operativa adicional.' },
-  { num: '05', title: 'Decisiones basadas en datos', desc: 'Cada propuesta de mejora está respaldada por analítica, heatmaps y datos reales de comportamiento de usuarios.' },
-  { num: '06', title: 'Ventaja competitiva real', desc: 'Mientras tu competencia tiene una web estática, la tuya mejora cada mes. La distancia se hace cada vez mayor.' },
+  { num: '04', title: 'Ventaja competitiva real', desc: 'Mientras tu competencia tiene una web estática, la tuya mejora cada mes. La distancia se hace cada vez mayor.' },
 ];
 
 export default function Benefits() {

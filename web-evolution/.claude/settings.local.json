@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx react-scripts:*)",
+      "WebFetch(domain:codepen.io)",
+      "WebFetch(domain:cdpn.io)"
+    ]
+  }
+}
