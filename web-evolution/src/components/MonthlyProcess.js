@@ -1,3 +1,4 @@
+import React, { useState, useRef, useEffect } from 'react';
 import Reveal from './Reveal';
 
 const weeks = [
@@ -20,6 +21,31 @@ const weeks = [
 ];
 
 export default function MonthlyProcess() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const scrollRef = useRef(null);
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const { scrollLeft, children } = scrollRef.current;
+    if (children.length > 0) {
+      // Calculate active card based on scroll position
+      const cardWidth = children[0].offsetWidth;
+      // add gap (16px) to width for calculation
+      const index = Math.round(scrollLeft / (cardWidth + 16));
+      setActiveIndex(index);
+    }
+  };
+
+  const scrollTo = (index) => {
+    if (!scrollRef.current || scrollRef.current.children.length === 0) return;
+    const cardWidth = scrollRef.current.children[0].offsetWidth;
+    scrollRef.current.scrollTo({
+      left: index * (cardWidth + 16),
+      behavior: 'smooth'
+    });
+    setActiveIndex(index);
+  };
+
   return (
     <section className="monthly-section" id="proceso-mensual">
       <div className="container">
@@ -31,15 +57,27 @@ export default function MonthlyProcess() {
           </div>
         </Reveal>
         <Reveal delay={150}>
-          <div className="monthly-grid">
-            {weeks.map((w, i) => (
-              <div className="monthly-card" key={i}>
-                <div className="monthly-icon">{w.icon}</div>
-                <div className="monthly-week">{w.week}</div>
-                <h4>{w.title}</h4>
-                <p>{w.desc}</p>
-              </div>
-            ))}
+          <div className="monthly-slider-wrapper">
+            <div className="monthly-grid" ref={scrollRef} onScroll={handleScroll}>
+              {weeks.map((w, i) => (
+                <div className="monthly-card" key={i}>
+                  <div className="monthly-icon">{w.icon}</div>
+                  <div className="monthly-week">{w.week}</div>
+                  <h4>{w.title}</h4>
+                  <p>{w.desc}</p>
+                </div>
+              ))}
+            </div>
+            <div className="monthly-dots">
+              {weeks.map((_, i) => (
+                <button
+                  key={i}
+                  className={`monthly-dot ${i === activeIndex ? 'active' : ''}`}
+                  onClick={() => scrollTo(i)}
+                  aria-label={`Ver semana ${i + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </Reveal>
       </div>

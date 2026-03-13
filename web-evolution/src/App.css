@@ -630,6 +630,7 @@ section { padding: 120px 0; position: relative; overflow: hidden; }
 .monthly-card h4 { font-size: 0.9375rem; margin-bottom: 8px; }
 .monthly-card p { font-size: 0.8125rem; color: var(--color-text-secondary); }
 .monthly-icon { font-size: 2rem; margin-bottom: 12px; }
+.monthly-dots { display: none; }
 
 /* ═══════════════════════════════════════
    ROADMAP — Dark navy with colorful accents
@@ -830,6 +831,16 @@ section { padding: 120px 0; position: relative; overflow: hidden; }
   }
   .monthly-grid::-webkit-scrollbar { display: none; }
   .monthly-card { min-width: 85vw; scroll-snap-align: center; flex-shrink: 0; }
+  .monthly-dots { 
+    display: flex; justify-content: center; gap: 8px; margin-top: 16px; 
+  }
+  .monthly-dot { 
+    width: 6px; height: 6px; border-radius: 50%; border: none; 
+    background: rgba(0, 191, 166, 0.3); transition: all 0.3s ease; 
+  }
+  .monthly-dot.active { 
+    width: 20px; border-radius: 100px; background: var(--color-teal); 
+  }
   
   .objections-grid { grid-template-columns: 1fr; }
   .case-results { grid-template-columns: 1fr; }
