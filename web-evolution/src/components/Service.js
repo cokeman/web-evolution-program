@@ -16,7 +16,7 @@ export default function Service() {
             <span className="section-label">La solución</span>
             <h2 className="section-title">Un equipo que mejora tu web cada mes, de forma estratégica</h2>
             <p className="section-subtitle" style={{ marginBottom: 32 }}>Web Evolution Program no es un mantenimiento. Es un servicio de mejora continua donde combinamos visión estratégica con ejecución técnica para que tu web evolucione mes a mes.</p>
-            <a href="#contacto" className="btn btn-primary btn-arrow btn-glow">Quiero saber más</a>
+            <a href="/contacto" className="btn btn-primary btn-arrow btn-glow">Quiero saber más</a>
           </Reveal>
           <Reveal direction="right" delay={200}>
             <div className="service-features">

@@ -44,7 +44,7 @@ export default function Pricing() {
                 <ul className="pricing-features">
                   {plan.features.map((f, j) => <li key={j}>{f}</li>)}
                 </ul>
-                <a href="#contacto" className={`btn ${plan.featured ? 'btn-primary btn-arrow btn-glow' : 'btn-glass'}`}>
+                <a href="/contacto" className={`btn ${plan.featured ? 'btn-primary btn-arrow btn-glow' : 'btn-glass'}`}>
                   {plan.featured ? 'Solicitar reunión' : 'Solicitar información'}
                 </a>
               </div>

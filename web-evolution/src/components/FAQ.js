@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Reveal from './Reveal';
 
 const faqs = [
-  { q: '¿Qué tecnologías soportáis?', a: 'Trabajamos con WordPress, Webflow, Shopify, Next.js, Nuxt.js y cualquier CMS o framework moderno. Si tu web está construida con tecnología personalizada, también podemos adaptarnos.' },
+  { q: '¿Qué tecnologías soportáis?', a: 'Trabajamos con Acai Framework, WordPress, Webflow, Shopify, Next.js, Nuxt.js y cualquier CMS o framework moderno. Si tu web está construida con tecnología personalizada, también podemos adaptarnos.' },
   { q: '¿Hay permanencia mínima?', a: 'Recomendamos un compromiso mínimo de 3 meses para poder ver resultados significativos, pero no hay permanencia obligatoria. Puedes cancelar con un preaviso de 30 días.' },
   { q: '¿Las horas no utilizadas se acumulan?', a: 'En el plan Growth las horas se acumulan hasta 1 mes, y en el plan Scale hasta 2 meses. En el plan Start las horas no son acumulables.' },
   { q: '¿Quién decide qué mejoras se implementan?', a: 'Nosotros analizamos y proponemos un plan priorizado. Tú apruebas las acciones antes de que las implementemos. Siempre tienes la última palabra.' },

@@ -13,8 +13,8 @@ export default function CtaFinal() {
           <h2 className="section-title">Tu web tiene potencial sin explotar.<br />Descúbrelo en una reunión de 30 minutos.</h2>
           <p>Sin compromiso. Analizamos tu situación actual y te decimos exactamente qué mejoraríamos y qué resultados puedes esperar.</p>
           <div className="cta-final-buttons">
-            <a href="#contacto" className="btn btn-white btn-arrow btn-glow-white">Agendar reunión estratégica gratuita</a>
-            <a href="#contacto" className="btn btn-glass-dark">Descargar caso de estudio</a>
+            <a href="/contacto" className="btn btn-white btn-arrow btn-glow-white">Agendar reunión estratégica gratuita</a>
+            <a href="/contacto" className="btn btn-glass-dark">Descargar caso de estudio</a>
           </div>
           <div className="cta-trust">
             {trustItems.map((item, i) => (
