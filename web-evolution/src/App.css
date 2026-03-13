@@ -72,6 +72,7 @@ h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; line-height: 1.15; co
   color: var(--color-primary); text-decoration: none;
   display: flex; align-items: center; gap: 8px;
 }
+.nav-logo-img { height: 32px; object-fit: contain; }
 .nav-logo-dots { display: flex; gap: 4px; }
 .nav-logo-dots span {
   width: 10px; height: 10px; border-radius: 50%;

@@ -23,8 +23,14 @@ export default function Hero() {
       <div className="container">
         <div className="hero-grid">
           <Reveal direction="left" className="hero-col-left">
-            <div className="hero-badge">Servicio de mejora continua</div>
-            <h1>Tu web no debería quedarse quieta mientras <span>tu mercado avanza</span></h1>
+            <a href="/" className="nav-logo">
+              <span className="nav-logo-dots">
+                <span></span><span></span><span></span>
+              </span>
+              Web <em>Evolution</em> Program
+            </a>
+            <br></br>
+            <h1 class="mt-10">Tu web no debería quedarse quieta mientras <span>tu mercado avanza</span></h1>
             <p className="hero-desc">Consultoría + implementación continua para mejorar el rendimiento de tu web. Analizamos, proponemos y ejecutamos mejoras cada mes para que tu web genere más negocio.</p>
             <div className="hero-ctas">
               <a href="/contacto" className="btn btn-primary btn-arrow btn-glow">Agendar reunión estratégica</a>

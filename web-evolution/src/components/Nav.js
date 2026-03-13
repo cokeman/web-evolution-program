@@ -13,10 +13,7 @@ export default function Nav() {
     <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
       <div className="container">
         <a href="/" className="nav-logo">
-          <span className="nav-logo-dots">
-            <span></span><span></span><span></span>
-          </span>
-          Web <em>Evolution</em> Program
+          <img alt="Cocosolution" class="h-12 lazyloaded" src="https://cocosolution.com/cms/uploads/logo_4.png" class="nav-logo-img"></img>
         </a>
         <a href="/contacto" className="nav-cta">Solicitar reunión</a>
       </div>
