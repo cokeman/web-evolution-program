@@ -817,7 +817,20 @@ section { padding: 120px 0; position: relative; overflow: hidden; }
   .hero { padding: 120px 0 64px; }
   .hero-proof { flex-direction: column; gap: 16px; }
   .process-steps, .roadmap-grid { grid-template-columns: 1fr; }
-  .monthly-grid { grid-template-columns: 1fr 1fr; }
+  
+  .monthly-grid { 
+    display: flex; 
+    overflow-x: auto; 
+    scroll-snap-type: x mandatory; 
+    margin: 0 -24px; 
+    padding: 0 24px 24px; 
+    gap: 16px; 
+    scrollbar-width: none; 
+    -webkit-overflow-scrolling: touch; 
+  }
+  .monthly-grid::-webkit-scrollbar { display: none; }
+  .monthly-card { min-width: 85vw; scroll-snap-align: center; flex-shrink: 0; }
+  
   .objections-grid { grid-template-columns: 1fr; }
   .case-results { grid-template-columns: 1fr; }
   .cta-trust { flex-direction: column; align-items: center; gap: 12px; }
