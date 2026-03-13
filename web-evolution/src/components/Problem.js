@@ -1,9 +1,18 @@
 import Reveal from './Reveal';
 
 const problems = [
-  { icon: '📉', title: 'La web se lanza y se olvida', desc: 'Se publica con ilusión, pero a los 3 meses ya nadie revisa si está cumpliendo objetivos o si hay oportunidades de mejora.' },
-  { icon: '🔧', title: 'El mantenimiento no es mejora', desc: 'Actualizar plugins o renovar el hosting no es optimizar. Tu competencia mejora mientras tu web se mantiene igual.' },
-  { icon: '🎯', title: 'Sin estrategia digital continua', desc: 'El equipo interno no tiene tiempo o conocimiento para analizar datos, detectar mejoras y ejecutarlas de forma recurrente.' },
+  { 
+    icon: <svg className="icon-animated" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-pink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>, 
+    title: 'La web se lanza y se olvida', desc: 'Se publica con ilusión, pero a los 3 meses ya nadie revisa si está cumpliendo objetivos o si hay oportunidades de mejora.' 
+  },
+  { 
+    icon: <svg className="icon-animated" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-yellow)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>, 
+    title: 'El mantenimiento no es mejora', desc: 'Actualizar plugins o renovar el hosting no es optimizar. Tu competencia mejora mientras tu web se mantiene igual.' 
+  },
+  { 
+    icon: <svg className="icon-animated" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>, 
+    title: 'Sin estrategia digital continua', desc: 'El equipo interno no tiene tiempo o conocimiento para analizar datos, detectar mejoras y ejecutarlas de forma recurrente.' 
+  },
 ];
 
 export default function Problem() {

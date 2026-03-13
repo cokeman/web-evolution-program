@@ -1,10 +1,22 @@
 import Reveal from './Reveal';
 
 const features = [
-  { icon: '🔍', title: 'Auditoría permanente', desc: 'Analizamos métricas, comportamiento de usuarios y rendimiento técnico de forma continua.' },
-  { icon: '💡', title: 'Propuestas de mejora priorizadas', desc: 'Cada mes recibes un plan de acción con las mejoras de mayor impacto para tu negocio.' },
-  { icon: '⚡', title: 'Implementación incluida', desc: 'No solo recomendamos. Ejecutamos las mejoras con tu bolsa de horas mensual.' },
-  { icon: '📈', title: 'Reporting de resultados', desc: 'Informe mensual con lo realizado, los resultados y los próximos pasos.' },
+  { 
+    icon: <svg className="icon-animated" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>, 
+    title: 'Auditoría permanente', desc: 'Analizamos métricas, comportamiento de usuarios y rendimiento técnico de forma continua.' 
+  },
+  { 
+    icon: <svg className="icon-animated" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>, 
+    title: 'Propuestas de mejora priorizadas', desc: 'Cada mes recibes un plan de acción con las mejoras de mayor impacto para tu negocio.' 
+  },
+  { 
+    icon: <svg className="icon-animated" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>, 
+    title: 'Implementación incluida', desc: 'No solo recomendamos. Ejecutamos las mejoras con tu bolsa de horas mensual.' 
+  },
+  { 
+    icon: <svg className="icon-animated-bounce" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>, 
+    title: 'Reporting de resultados', desc: 'Informe mensual con lo realizado, los resultados y los próximos pasos.' 
+  },
 ];
 
 export default function Service() {

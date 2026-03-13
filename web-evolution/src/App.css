@@ -772,6 +772,36 @@ section { padding: 120px 0; position: relative; overflow: hidden; }
 @keyframes grow-bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
 /* ═══════════════════════════════════════
+   SVG ICON ANIMATIONS
+   ═══════════════════════════════════════ */
+.icon-animated {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s;
+}
+.glass-card-dark:hover .icon-animated,
+.problem-card:hover .icon-animated,
+.include-card:hover .icon-animated,
+.service-feature:hover .icon-animated,
+.monthly-card:hover .icon-animated {
+  transform: scale(1.15) translateY(-4px) rotate(-5deg);
+  filter: drop-shadow(0 8px 16px rgba(255, 59, 124, 0.3));
+}
+
+.icon-animated-spin {
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.include-card:hover .icon-animated-spin {
+  transform: scale(1.1) rotate(15deg);
+}
+
+.icon-animated-bounce {
+  transition: transform 0.4s ease;
+}
+.include-card:hover .icon-animated-bounce {
+  transform: translateY(-8px);
+}
+
+
+/* ═══════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════ */
 @media (max-width: 1024px) {
