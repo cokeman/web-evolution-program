@@ -27,8 +27,9 @@ npx react-snap
 # English pre-rendered build is now in build/index.html — copy as index-en.html
 cp build/index.html build/index-en.html
 
-# Restore Spanish index.html as the main one
+# Restore Spanish index.html AND its JS bundle (different hash than English)
 cp build-es-temp/index.html build/index.html
+cp -n build-es-temp/static/js/* build/static/js/ 2>/dev/null || true
 
 # Cleanup temp
 rm -rf build-es-temp

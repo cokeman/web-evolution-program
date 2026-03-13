@@ -6,7 +6,8 @@
       "WebFetch(domain:cdpn.io)",
       "Bash(chmod +x /Users/jordandiaz/Documents/GitHub/web-evolution-program/web-evolution/scripts/build-i18n.sh)",
       "Bash(npm run:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(ls /Users/jordandiaz/Documents/GitHub/web-evolution-program/web-evolution/build/static/js/main.*.js)"
     ]
   }
 }
