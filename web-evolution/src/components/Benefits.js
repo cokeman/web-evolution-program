@@ -3,8 +3,7 @@ import Reveal from './Reveal';
 const benefits = [
   { num: '01', title: 'Más leads cualificados', desc: 'Cada mejora está orientada a generar más contactos comerciales desde la web. Más formularios, más llamadas, más oportunidades.' },
   { num: '02', title: 'Mejor posicionamiento SEO', desc: 'Mejoras continuas en contenido, velocidad y estructura que hacen que Google te posicione mejor cada mes.' },
-  { num: '03', title: 'Mayor retorno de tu inversión web', desc: 'Tu web ya existe. En lugar de rehacerla cada 3 años, la evolucionas constantemente por una fracción del coste.' },
-  { num: '04', title: 'Ventaja competitiva real', desc: 'Mientras tu competencia tiene una web estática, la tuya mejora cada mes. La distancia se hace cada vez mayor.' },
+  { num: '03', title: 'Mayor retorno de tu inversión web', desc: 'En lugar de rehacerla cada 3 años, la evolucionas constantemente por una fracción del coste. Mientras tu competencia se queda quieta, tú avanzas.' },
 ];
 
 export default function Benefits() {
