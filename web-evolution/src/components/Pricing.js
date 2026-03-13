@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react';
 import Reveal from './Reveal';
+import useTranslations from '../i18n';
 
 /* ─── Antigravity FLOW — exact replica of codepen.io/plasm/pen/XMeZXV ─── */
 
@@ -105,40 +106,7 @@ function AntigravityCanvas() {
   return <div ref={containerRef} className="pricing-particles" />;
 }
 
-/* ─── Pricing data ─── */
-
-const plans = [
-  {
-    name: 'Start', hours: '4h',
-    desc: 'Mantenimiento y pequeñas mejoras para webs que necesitan una evolución básica.',
-    featured: false,
-    features: ['Auditoría mensual básica', 'Plan de mejoras priorizado', '4 horas de implementación', 'Reporting mensual', 'Soporte por email'],
-  },
-  {
-    name: 'Growth', hours: '10h',
-    desc: 'Optimización continua para webs que quieren crecer activamente en conversión y tráfico.',
-    featured: true,
-    features: ['Auditoría técnica + UX mensual', 'Consultoría estratégica mensual', '10 horas de implementación', 'Tests A/B incluidos', 'Reporting avanzado con KPIs', 'Reunión mensual de seguimiento', 'Soporte prioritario'],
-  },
-  {
-    name: 'Scale', hours: '20h',
-    desc: 'Evolución activa y desarrollo continuo para webs con ambición de crecimiento acelerado.',
-    featured: false,
-    features: ['Auditoría completa continua', 'Consultoría estratégica mensual', '20 horas de implementación', 'Tests A/B + personalización', 'Reporting avanzado + dashboard', 'Reunión mensual de seguimiento', 'Account manager dedicado', 'Soporte prioritario + emergencias'],
-  },
-];
-
-const rows = [
-  { feature: 'Horas mensuales', start: '4h', growth: '10h', scale: '20h' },
-  { feature: 'Auditoría técnica', start: '✓ Básica', growth: '✓ Completa', scale: '✓ Continua', startCheck: true, growthCheck: true, scaleCheck: true },
-  { feature: 'Auditoría UX', start: '—', growth: '✓', scale: '✓', startCross: true, growthCheck: true, scaleCheck: true },
-  { feature: 'Consultoría estratégica', start: '—', growth: 'Mensual', scale: 'Bisemanal', startCross: true },
-  { feature: 'Tests A/B', start: '—', growth: '✓', scale: '✓', startCross: true, growthCheck: true, scaleCheck: true },
-  { feature: 'Reporting', start: 'Básico', growth: 'Avanzado', scale: 'Avanzado + Dashboard' },
-  { feature: 'Reuniones de seguimiento', start: '—', growth: 'Mensual', scale: 'Bisemanal', startCross: true },
-  { feature: 'Account manager dedicado', start: '—', growth: '—', scale: '✓', startCross: true, growthCross: true, scaleCheck: true },
-  { feature: 'Horas acumulables', start: '—', growth: '✓ 1 mes', scale: '✓ 2 meses', startCross: true, growthCheck: true, scaleCheck: true },
-];
+/* ─── Cell helper ─── */
 
 function Cell({ value, isCheck, isCross }) {
   if (isCross) return <td><span className="cross">—</span></td>;
@@ -147,50 +115,52 @@ function Cell({ value, isCheck, isCross }) {
 }
 
 export default function Pricing() {
+  const t = useTranslations();
+
   return (
     <section className="pricing" id="planes">
       <AntigravityCanvas />
       <div className="container">
         <Reveal>
           <div className="section-header">
-            <span className="section-label">Planes</span>
-            <h2 className="section-title">Elige el nivel de evolución que necesitas</h2>
-            <p className="section-subtitle">Todos los planes incluyen consultoría estratégica + implementación técnica.</p>
+            <span className="section-label">{t.pricing.label}</span>
+            <h2 className="section-title">{t.pricing.title}</h2>
+            <p className="section-subtitle">{t.pricing.subtitle}</p>
           </div>
         </Reveal>
         <Reveal delay={150}>
           <div className="pricing-grid">
-            {plans.map((plan, i) => (
-              <div className={`pricing-card${plan.featured ? ' featured' : ''}`} key={i}>
-                {plan.featured && <div className="pricing-badge">Más popular</div>}
-                <div className="pricing-name">{plan.name}</div>
-                <div className="pricing-hours">{plan.hours} <span>/ mes</span></div>
-                <p className="pricing-desc">{plan.desc}</p>
-                <ul className="pricing-features">
-                  {plan.features.map((f, j) => <li key={j}>{f}</li>)}
-                </ul>
-                <a href="/contacto" className={`btn ${plan.featured ? 'btn-primary btn-arrow btn-glow' : 'btn-glass'}`}>
-                  {plan.featured ? 'Solicitar reunión' : 'Solicitar información'}
-                </a>
-              </div>
-            ))}
+            {t.pricing.plans.map((plan, i) => {
+              const featured = i === 1;
+              return (
+                <div className={`pricing-card${featured ? ' featured' : ''}`} key={i}>
+                  {featured && <div className="pricing-badge">{t.pricing.badge}</div>}
+                  <div className="pricing-name">{plan.name}</div>
+                  <div className="pricing-hours">{plan.hours} <span>{t.pricing.perMonth}</span></div>
+                  <p className="pricing-desc">{plan.desc}</p>
+                  <ul className="pricing-features">
+                    {plan.features.map((f, j) => <li key={j}>{f}</li>)}
+                  </ul>
+                  <a href="/contacto" className={`btn ${featured ? 'btn-primary btn-arrow btn-glow' : 'btn-glass'}`}>
+                    {featured ? t.pricing.ctaFeatured : t.pricing.ctaDefault}
+                  </a>
+                </div>
+              );
+            })}
           </div>
         </Reveal>
         <Reveal delay={250}>
           <div className="comparison-inline">
-            <h3 className="comparison-inline-title">Compara los planes en detalle</h3>
+            <h3 className="comparison-inline-title">{t.pricing.comparisonTitle}</h3>
             <div className="comparison-wrapper">
               <table className="comparison-table glass-table">
                 <thead>
                   <tr>
-                    <th>Característica</th>
-                    <th>Start</th>
-                    <th>Growth</th>
-                    <th>Scale</th>
+                    {t.pricing.tableHeaders.map((h, i) => <th key={i}>{h}</th>)}
                   </tr>
                 </thead>
                 <tbody>
-                  {rows.map((r, i) => (
+                  {t.pricing.rows.map((r, i) => (
                     <tr key={i}>
                       <td>{r.feature}</td>
                       <Cell value={r.start} isCheck={r.startCheck} isCross={r.startCross} />

@@ -1,20 +1,17 @@
 import Reveal from './Reveal';
+import useTranslations from '../i18n';
 
-const metrics = [
-  { label: 'Tasa de conversión', width: 120, color: '#FF6B2C', value: '+42%' },
-  { label: 'Velocidad de carga', width: 140, color: '#00BFA6', value: '1.8s' },
-  { label: 'Tráfico orgánico', width: 100, color: '#E91E63', value: '+67%' },
-  { label: 'Leads mensuales', width: 110, color: '#7C4DFF', value: '+89%' },
-  { label: 'Páginas / sesión', width: 90, color: '#2979FF', value: '3.4' },
-];
-
-const proofItems = [
-  { number: '+120', label: 'webs optimizadas' },
-  { number: '+38%', label: 'conversión media' },
-  { number: '96%', label: 'renovaciones' },
+const metricStyles = [
+  { width: 120, color: '#FF6B2C' },
+  { width: 140, color: '#00BFA6' },
+  { width: 100, color: '#E91E63' },
+  { width: 110, color: '#7C4DFF' },
+  { width: 90, color: '#2979FF' },
 ];
 
 export default function Hero() {
+  const t = useTranslations();
+
   return (
     <section className="hero" id="hero">
       <div className="hero-orb hero-orb-1"></div>
@@ -27,17 +24,17 @@ export default function Hero() {
               <span className="nav-logo-dots">
                 <span></span><span></span><span></span>
               </span>
-              Web <em>Evolution</em> Program
+              <span dangerouslySetInnerHTML={{ __html: t.hero.brandName }} />
             </a>
             <br></br>
-            <h1 class="mt-10">Tu web no debería quedarse quieta mientras <span>tu mercado avanza</span></h1>
-            <p className="hero-desc">Consultoría + implementación continua para mejorar el rendimiento de tu web. Analizamos, proponemos y ejecutamos mejoras cada mes para que tu web genere más negocio.</p>
+            <h1 className="mt-10" dangerouslySetInnerHTML={{ __html: t.hero.headline }} />
+            <p className="hero-desc">{t.hero.desc}</p>
             <div className="hero-ctas">
-              <a href="/contacto" className="btn btn-primary btn-arrow btn-glow">Agendar reunión estratégica</a>
-              <a href="#como-funciona" className="btn btn-glass">Ver cómo funciona</a>
+              <a href="/contacto" className="btn btn-primary btn-arrow btn-glow">{t.hero.ctaPrimary}</a>
+              <a href="#como-funciona" className="btn btn-glass">{t.hero.ctaSecondary}</a>
             </div>
             <div className="hero-proof">
-              {proofItems.map((item, i) => (
+              {t.hero.proof.map((item, i) => (
                 <div className="hero-proof-item" key={i}>
                   <div className="hero-proof-number">{item.number}</div>
                   <div className="hero-proof-label">{item.label}</div>
@@ -52,15 +49,15 @@ export default function Hero() {
                 <div className="hero-visual-dot"></div>
                 <div className="hero-visual-dot"></div>
               </div>
-              {metrics.map((m, i) => (
+              {t.hero.metrics.map((m, i) => (
                 <div className="hero-metric" key={i}>
                   <span className="hero-metric-label">{m.label}</span>
                   <div className="hero-metric-bar">
                     <div
                       className="hero-metric-fill animate-bar"
                       style={{
-                        width: m.width,
-                        ...(m.color && { background: m.color }),
+                        width: metricStyles[i].width,
+                        background: metricStyles[i].color,
                         animationDelay: `${i * 150 + 600}ms`,
                       }}
                     ></div>

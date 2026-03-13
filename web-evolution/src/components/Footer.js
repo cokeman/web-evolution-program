@@ -1,11 +1,15 @@
+import useTranslations from '../i18n';
+
 export default function Footer() {
+  const t = useTranslations();
+
   return (
     <footer className="footer">
       <div className="container">
         <a href="/" className="nav-logo footer-brand">
-          <img alt="Cocosolution" class="h-12 lazyloaded" src="https://cocosolution.com/cms/uploads/logo_4.png" class="nav-logo-img"></img>
+          <img alt="Cocosolution" className="h-12 lazyloaded nav-logo-img" src="https://cocosolution.com/cms/uploads/logo_4.png"></img>
         </a>
-        <p>Consultoría + implementación continua para que tu web mejore cada mes.</p>
+        <p>{t.footer.desc}</p>
       </div>
     </footer>
   );
