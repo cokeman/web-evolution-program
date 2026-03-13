@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Evolution Program — Consultoría + Implementación continua para tu web</title>
+  <meta name="description" content="Analizamos, proponemos e implementamos mejoras en tu web cada mes. Consultoría estratégica + bolsa de horas para que tu web evolucione y convierta más. Solicita reunión.">
+  <meta name="keywords" content="consultoría web, optimización web continua, mejora web mensual, auditoría web, CRO, mantenimiento web avanzado, evolución web, agencia digital B2B">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --color-bg: #FAFAFA;
+      --color-surface: #FFFFFF;
+      --color-primary: #1B2A4A;
+      --color-accent: #2563EB;
+      --color-accent-hover: #1D4ED8;
+      --color-accent-light: #EFF6FF;
+      --color-text: #1E293B;
+      --color-text-secondary: #64748B;
+      --color-border: #E2E8F0;
+      --color-success: #059669;
+      --color-warning: #D97706;
+      --color-danger: #DC2626;
+      --radius: 12px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 40px rgba(0,0,0,0.10);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; line-height: 1.2; }
+
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      padding: 16px 0; transition: box-shadow 0.3s;
+    }
+    .nav.scrolled { box-shadow: var(--shadow-sm); }
+    .nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--color-primary); text-decoration: none; }
+    .nav-logo span { color: var(--color-accent); }
+    .nav-cta {
+      background: var(--color-accent); color: #fff; padding: 10px 24px;
+      border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.875rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--color-accent-hover); transform: translateY(-1px); }
+
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 16px 32px; border-radius: 10px; font-weight: 600;
+      font-size: 1rem; text-decoration: none; cursor: pointer; border: none;
+      transition: all 0.25s ease;
+    }
+    .btn-primary { background: var(--color-accent); color: #fff; }
+    .btn-primary:hover { background: var(--color-accent-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,0.3); }
+    .btn-secondary { background: transparent; color: var(--color-accent); border: 2px solid var(--color-accent); }
+    .btn-secondary:hover { background: var(--color-accent-light); }
+    .btn-white { background: #fff; color: var(--color-accent); }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .btn-arrow::after { content: '→'; transition: transform 0.2s; }
+    .btn-arrow:hover::after { transform: translateX(4px); }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 96px 0; }
+    .section-label {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent);
+      background: var(--color-accent-light); padding: 6px 14px; border-radius: 6px;
+      margin-bottom: 16px;
+    }
+    .section-title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; color: var(--color-primary); margin-bottom: 16px; }
+    .section-subtitle { font-size: 1.125rem; color: var(--color-text-secondary); max-width: 640px; }
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-header .section-subtitle { margin: 0 auto; }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 160px 0 100px;
+      background: linear-gradient(170deg, #F0F4FF 0%, #FAFAFA 60%);
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -200px; right: -200px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%);
+    }
+    .hero .container { position: relative; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--color-accent-light); color: var(--color-accent);
+      padding: 8px 16px; border-radius: 100px; font-size: 0.8125rem;
+      font-weight: 600; margin-bottom: 24px;
+    }
+    .hero-badge::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .hero h1 { font-size: clamp(2.25rem, 5vw, 3.25rem); font-weight: 800; color: var(--color-primary); margin-bottom: 20px; }
+    .hero h1 span { color: var(--color-accent); }
+    .hero-desc { font-size: 1.125rem; color: var(--color-text-secondary); margin-bottom: 32px; max-width: 520px; line-height: 1.8; }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-proof { display: flex; gap: 32px; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--color-border); }
+    .hero-proof-item { text-align: center; }
+    .hero-proof-number { font-family: 'Space Grotesk', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--color-primary); }
+    .hero-proof-label { font-size: 0.8125rem; color: var(--color-text-secondary); }
+
+    .hero-visual {
+      background: var(--color-surface); border-radius: 16px; padding: 32px;
+      box-shadow: var(--shadow-lg); border: 1px solid var(--color-border);
+      position: relative;
+    }
+    .hero-visual-header { display: flex; gap: 8px; margin-bottom: 20px; }
+    .hero-visual-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .hero-visual-dot:nth-child(1) { background: #FCA5A5; }
+    .hero-visual-dot:nth-child(2) { background: #FCD34D; }
+    .hero-visual-dot:nth-child(3) { background: #6EE7B7; }
+    .hero-metric { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--color-border); }
+    .hero-metric:last-child { border-bottom: none; }
+    .hero-metric-label { font-size: 0.875rem; color: var(--color-text-secondary); }
+    .hero-metric-bar { display: flex; align-items: center; gap: 12px; }
+    .hero-metric-fill { height: 8px; border-radius: 4px; background: var(--color-accent); }
+    .hero-metric-value { font-weight: 700; font-size: 0.875rem; color: var(--color-primary); }
+    .metric-up { color: var(--color-success); }
+
+    /* ─── PROBLEM ─── */
+    .problem { background: var(--color-primary); color: #fff; }
+    .problem .section-label { background: rgba(255,255,255,0.1); color: #93C5FD; }
+    .problem .section-title { color: #fff; }
+    .problem .section-subtitle { color: #94A3B8; }
+    .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .problem-card {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius); padding: 32px;
+    }
+    .problem-icon { font-size: 2rem; margin-bottom: 16px; }
+    .problem-card h3 { color: #fff; font-size: 1.125rem; margin-bottom: 8px; }
+    .problem-card p { color: #94A3B8; font-size: 0.9375rem; }
+
+    /* ─── CONSEQUENCES ─── */
+    .consequences-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .consequence-list { display: flex; flex-direction: column; gap: 20px; }
+    .consequence-item { display: flex; gap: 16px; align-items: flex-start; }
+    .consequence-marker {
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: 10px;
+      background: #FEF2F2; display: flex; align-items: center; justify-content: center;
+      font-size: 1.125rem;
+    }
+    .consequence-item h4 { font-size: 1rem; margin-bottom: 4px; }
+    .consequence-item p { font-size: 0.875rem; color: var(--color-text-secondary); }
+    .consequence-visual {
+      background: linear-gradient(135deg, #FEF2F2 0%, #FFF7ED 100%);
+      border-radius: 16px; padding: 40px; text-align: center;
+    }
+    .consequence-chart { display: flex; align-items: flex-end; justify-content: center; gap: 12px; height: 200px; }
+    .consequence-bar {
+      width: 48px; border-radius: 8px 8px 0 0; position: relative;
+      transition: height 0.6s ease;
+    }
+    .consequence-bar-label {
+      position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%);
+      font-size: 0.6875rem; color: var(--color-text-secondary); white-space: nowrap;
+    }
+
+    /* ─── SERVICE ─── */
+    .service { background: var(--color-surface); }
+    .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .service-features { display: flex; flex-direction: column; gap: 24px; }
+    .service-feature { display: flex; gap: 16px; }
+    .service-feature-icon {
+      flex-shrink: 0; width: 48px; height: 48px; border-radius: 12px;
+      background: var(--color-accent-light); display: flex; align-items: center;
+      justify-content: center; font-size: 1.25rem;
+    }
+    .service-feature h4 { font-size: 1rem; margin-bottom: 4px; }
+    .service-feature p { font-size: 0.875rem; color: var(--color-text-secondary); }
+
+    /* ─── PROCESS ─── */
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; position: relative; }
+    .process-steps::before {
+      content: ''; position: absolute; top: 40px; left: 60px; right: 60px;
+      height: 2px; background: var(--color-border);
+    }
+    .process-step { text-align: center; position: relative; }
+    .process-step-number {
+      width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700;
+      background: var(--color-accent-light); color: var(--color-accent);
+      border: 3px solid var(--color-surface); position: relative; z-index: 1;
+    }
+    .process-step h4 { font-size: 1rem; margin-bottom: 8px; }
+    .process-step p { font-size: 0.8125rem; color: var(--color-text-secondary); }
+
+    /* ─── INCLUDES ─── */
+    .includes { background: var(--color-surface); }
+    .includes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .include-card {
+      padding: 28px; border-radius: var(--radius); border: 1px solid var(--color-border);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .include-card:hover { border-color: var(--color-accent); box-shadow: var(--shadow-sm); }
+    .include-icon { font-size: 1.5rem; margin-bottom: 12px; }
+    .include-card h4 { font-size: 0.9375rem; margin-bottom: 6px; }
+    .include-card p { font-size: 0.8125rem; color: var(--color-text-secondary); }
+
+    /* ─── EXAMPLES ─── */
+    .examples-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .example-card {
+      background: var(--color-surface); border-radius: var(--radius);
+      padding: 24px; border: 1px solid var(--color-border);
+    }
+    .example-tag {
+      display: inline-block; font-size: 0.6875rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      padding: 4px 10px; border-radius: 4px; margin-bottom: 12px;
+    }
+    .tag-ux { background: #F0FDF4; color: #166534; }
+    .tag-seo { background: #FFF7ED; color: #9A3412; }
+    .tag-cro { background: #EFF6FF; color: #1E40AF; }
+    .tag-performance { background: #F5F3FF; color: #5B21B6; }
+    .tag-content { background: #FDF2F8; color: #9D174D; }
+    .example-card h4 { font-size: 0.9375rem; margin-bottom: 6px; }
+    .example-card p { font-size: 0.8125rem; color: var(--color-text-secondary); }
+
+    /* ─── BENEFITS ─── */
+    .benefits { background: linear-gradient(170deg, #F0F4FF 0%, #FAFAFA 100%); }
+    .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .benefit-card { background: var(--color-surface); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow-sm); }
+    .benefit-number {
+      font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700;
+      color: var(--color-accent-light); margin-bottom: 8px; line-height: 1;
+    }
+    .benefit-card h4 { font-size: 1.0625rem; margin-bottom: 8px; }
+    .benefit-card p { font-size: 0.875rem; color: var(--color-text-secondary); }
+
+    /* ─── PRICING ─── */
+    .pricing { background: var(--color-surface); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .pricing-card {
+      border-radius: 16px; padding: 40px 32px; border: 2px solid var(--color-border);
+      position: relative; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .pricing-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .pricing-card.featured { border-color: var(--color-accent); }
+    .pricing-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--color-accent); color: #fff; padding: 6px 20px;
+      border-radius: 100px; font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .pricing-name { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-secondary); margin-bottom: 8px; }
+    .pricing-hours { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--color-primary); }
+    .pricing-hours span { font-size: 1rem; font-weight: 500; color: var(--color-text-secondary); }
+    .pricing-desc { font-size: 0.875rem; color: var(--color-text-secondary); margin: 12px 0 24px; min-height: 44px; }
+    .pricing-features { list-style: none; margin-bottom: 32px; }
+    .pricing-features li {
+      padding: 10px 0; border-bottom: 1px solid var(--color-border);
+      font-size: 0.875rem; display: flex; align-items: center; gap: 10px;
+    }
+    .pricing-features li::before { content: '✓'; color: var(--color-success); font-weight: 700; }
+    .pricing-card .btn { width: 100%; justify-content: center; }
+
+    /* ─── COMPARISON ─── */
+    .comparison-table {
+      width: 100%; border-collapse: separate; border-spacing: 0;
+      background: var(--color-surface); border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow-sm);
+    }
+    .comparison-table th, .comparison-table td {
+      padding: 16px 24px; text-align: left; border-bottom: 1px solid var(--color-border);
+    }
+    .comparison-table th {
+      background: var(--color-primary); color: #fff; font-size: 0.875rem;
+      font-weight: 600;
+    }
+    .comparison-table th:first-child { border-radius: 12px 0 0 0; }
+    .comparison-table th:last-child { border-radius: 0 12px 0 0; }
+    .comparison-table td { font-size: 0.875rem; }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .comparison-table td:not(:first-child) { text-align: center; }
+    .comparison-table th:not(:first-child) { text-align: center; }
+    .check { color: var(--color-success); font-weight: 700; }
+    .cross { color: #CBD5E1; }
+
+    /* ─── CASE STUDY ─── */
+    .case-study { background: linear-gradient(170deg, #F0F4FF 0%, #FAFAFA 100%); }
+    .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .case-context { background: var(--color-surface); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow-sm); }
+    .case-context h3 { font-size: 1.25rem; margin-bottom: 16px; }
+    .case-timeline { position: relative; padding-left: 32px; }
+    .case-timeline::before {
+      content: ''; position: absolute; left: 11px; top: 0; bottom: 0;
+      width: 2px; background: var(--color-border);
+    }
+    .timeline-item { position: relative; margin-bottom: 28px; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -28px; top: 6px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--color-accent); border: 3px solid var(--color-accent-light);
+    }
+    .timeline-month { font-size: 0.75rem; font-weight: 700; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; }
+    .timeline-item h4 { font-size: 0.9375rem; margin: 4px 0; }
+    .timeline-item p { font-size: 0.8125rem; color: var(--color-text-secondary); }
+    .case-results { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+    .case-result {
+      background: var(--color-surface); border-radius: var(--radius); padding: 20px;
+      text-align: center; box-shadow: var(--shadow-sm);
+    }
+    .case-result-value { font-family: 'Space Grotesk', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--color-accent); }
+    .case-result-label { font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 4px; }
+
+    /* ─── DIFFERENTIATORS ─── */
+    .diff { background: var(--color-surface); }
+    .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .diff-card { border-radius: var(--radius); padding: 32px; }
+    .diff-card.traditional { background: #F8FAFC; border: 1px solid var(--color-border); }
+    .diff-card.evolution { background: var(--color-accent-light); border: 2px solid var(--color-accent); }
+    .diff-card h3 { font-size: 1.125rem; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .diff-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .diff-list li { font-size: 0.875rem; display: flex; gap: 10px; align-items: flex-start; }
+    .diff-list li span { flex-shrink: 0; font-size: 1rem; }
+
+    /* ─── MONTHLY PROCESS ─── */
+    .monthly-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .monthly-card {
+      background: var(--color-surface); border-radius: var(--radius); padding: 28px;
+      border: 1px solid var(--color-border); text-align: center;
+    }
+    .monthly-week {
+      font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--color-accent); margin-bottom: 8px;
+    }
+    .monthly-card h4 { font-size: 0.9375rem; margin-bottom: 8px; }
+    .monthly-card p { font-size: 0.8125rem; color: var(--color-text-secondary); }
+    .monthly-icon { font-size: 2rem; margin-bottom: 12px; }
+
+    /* ─── ROADMAP ─── */
+    .roadmap { background: var(--color-primary); color: #fff; }
+    .roadmap .section-label { background: rgba(255,255,255,0.1); color: #93C5FD; }
+    .roadmap .section-title { color: #fff; }
+    .roadmap .section-subtitle { color: #94A3B8; }
+    .roadmap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .roadmap-card {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius); padding: 28px; position: relative;
+    }
+    .roadmap-phase {
+      font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: #93C5FD; margin-bottom: 8px;
+    }
+    .roadmap-card h4 { color: #fff; font-size: 1rem; margin-bottom: 8px; }
+    .roadmap-card p { color: #94A3B8; font-size: 0.8125rem; }
+    .roadmap-card ul { list-style: none; margin-top: 12px; }
+    .roadmap-card ul li { color: #94A3B8; font-size: 0.8125rem; padding: 3px 0; display: flex; align-items: center; gap: 8px; }
+    .roadmap-card ul li::before { content: '—'; color: #93C5FD; }
+
+    /* ─── OBJECTIONS ─── */
+    .objections { background: var(--color-surface); }
+    .objections-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
+    .objection-card { border-radius: var(--radius); padding: 28px; border: 1px solid var(--color-border); }
+    .objection-q { font-weight: 700; font-size: 1rem; color: var(--color-primary); margin-bottom: 12px; display: flex; gap: 12px; }
+    .objection-a { font-size: 0.875rem; color: var(--color-text-secondary); padding-left: 36px; }
+
+    /* ─── FAQ ─── */
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--color-border); }
+    .faq-question {
+      width: 100%; background: none; border: none; padding: 24px 0;
+      font-size: 1rem; font-weight: 600; color: var(--color-text);
+      text-align: left; cursor: pointer; display: flex;
+      justify-content: space-between; align-items: center;
+      font-family: inherit;
+    }
+    .faq-question::after { content: '+'; font-size: 1.5rem; color: var(--color-accent); transition: transform 0.2s; }
+    .faq-item.open .faq-question::after { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-answer-inner { padding: 0 0 24px; font-size: 0.9375rem; color: var(--color-text-secondary); line-height: 1.7; }
+
+    /* ─── CTA FINAL ─── */
+    .cta-final {
+      background: linear-gradient(135deg, var(--color-primary) 0%, #1E3A6E 100%);
+      color: #fff; text-align: center;
+    }
+    .cta-final .section-title { color: #fff; font-size: clamp(2rem, 4vw, 2.75rem); }
+    .cta-final p { color: #94A3B8; font-size: 1.125rem; max-width: 560px; margin: 16px auto 32px; }
+    .cta-final-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-trust { display: flex; gap: 32px; justify-content: center; margin-top: 48px; color: #64748B; font-size: 0.8125rem; }
+    .cta-trust span { display: flex; align-items: center; gap: 8px; }
+
+    /* ─── FOOTER ─── */
+    .footer { background: #0F172A; color: #94A3B8; padding: 48px 0; text-align: center; font-size: 0.875rem; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .hero-grid, .consequences-grid, .service-grid, .case-grid, .diff-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .process-steps::before { display: none; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .roadmap-grid { grid-template-columns: repeat(2, 1fr); }
+      .comparison-wrapper { overflow-x: auto; }
+    }
+    @media (max-width: 640px) {
+      section { padding: 64px 0; }
+      .hero { padding: 120px 0 64px; }
+      .hero-proof { flex-direction: column; gap: 16px; }
+      .process-steps, .roadmap-grid { grid-template-columns: 1fr; }
+      .monthly-grid { grid-template-columns: 1fr 1fr; }
+      .objections-grid { grid-template-columns: 1fr; }
+      .case-results { grid-template-columns: 1fr; }
+      .cta-trust { flex-direction: column; align-items: center; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════ NAV ═══════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="#" class="nav-logo">Web <span>Evolution</span> Program</a>
+    <a href="#contacto" class="nav-cta">Solicitar reunión</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════ 1. HERO ═══════════════════════ -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">Servicio de mejora continua</div>
+        <h1>Tu web no debería quedarse quieta mientras <span>tu mercado avanza</span></h1>
+        <p class="hero-desc">Consultoría + implementación continua para mejorar el rendimiento de tu web. Analizamos, proponemos y ejecutamos mejoras cada mes para que tu web genere más negocio.</p>
+        <div class="hero-ctas">
+          <a href="#contacto" class="btn btn-primary btn-arrow">Agendar reunión estratégica</a>
+          <a href="#como-funciona" class="btn btn-secondary">Ver cómo funciona</a>
+        </div>
+        <div class="hero-proof">
+          <div class="hero-proof-item">
+            <div class="hero-proof-number">+120</div>
+            <div class="hero-proof-label">webs optimizadas</div>
+          </div>
+          <div class="hero-proof-item">
+            <div class="hero-proof-number">+38%</div>
+            <div class="hero-proof-label">conversión media</div>
+          </div>
+          <div class="hero-proof-item">
+            <div class="hero-proof-number">96%</div>
+            <div class="hero-proof-label">renovaciones</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-visual-header">
+          <div class="hero-visual-dot"></div>
+          <div class="hero-visual-dot"></div>
+          <div class="hero-visual-dot"></div>
+        </div>
+        <div class="hero-metric">
+          <span class="hero-metric-label">Tasa de conversión</span>
+          <div class="hero-metric-bar">
+            <div class="hero-metric-fill" style="width:120px"></div>
+            <span class="hero-metric-value metric-up">+42%</span>
+          </div>
+        </div>
+        <div class="hero-metric">
+          <span class="hero-metric-label">Velocidad de carga</span>
+          <div class="hero-metric-bar">
+            <div class="hero-metric-fill" style="width:140px;background:#059669"></div>
+            <span class="hero-metric-value metric-up">1.8s</span>
+          </div>
+        </div>
+        <div class="hero-metric">
+          <span class="hero-metric-label">Tráfico orgánico</span>
+          <div class="hero-metric-bar">
+            <div class="hero-metric-fill" style="width:100px"></div>
+            <span class="hero-metric-value metric-up">+67%</span>
+          </div>
+        </div>
+        <div class="hero-metric">
+          <span class="hero-metric-label">Leads mensuales</span>
+          <div class="hero-metric-bar">
+            <div class="hero-metric-fill" style="width:110px;background:#8B5CF6"></div>
+            <span class="hero-metric-value metric-up">+89%</span>
+          </div>
+        </div>
+        <div class="hero-metric">
+          <span class="hero-metric-label">Páginas / sesión</span>
+          <div class="hero-metric-bar">
+            <div class="hero-metric-fill" style="width:90px;background:#059669"></div>
+            <span class="hero-metric-value metric-up">3.4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 2. PROBLEMA ═══════════════════════ -->
+<section class="problem" id="problema">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">El problema</span>
+      <h2 class="section-title">El 83% de las webs corporativas se estancan tras su lanzamiento</h2>
+      <p class="section-subtitle">Se invierten miles de euros en crear una web y luego... nada. Sin evolución, sin optimización, sin resultados crecientes.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">📉</div>
+        <h3>La web se lanza y se olvida</h3>
+        <p>Se publica con ilusión, pero a los 3 meses ya nadie revisa si está cumpliendo objetivos o si hay oportunidades de mejora.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🔧</div>
+        <h3>El mantenimiento no es mejora</h3>
+        <p>Actualizar plugins o renovar el hosting no es optimizar. Tu competencia mejora mientras tu web se mantiene igual.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🎯</div>
+        <h3>Sin estrategia digital continua</h3>
+        <p>El equipo interno no tiene tiempo o conocimiento para analizar datos, detectar mejoras y ejecutarlas de forma recurrente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 3. CONSECUENCIAS ═══════════════════════ -->
+<section class="consequences" id="consecuencias">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Consecuencias</span>
+      <h2 class="section-title">Lo que cuesta no optimizar tu web</h2>
+      <p class="section-subtitle">Cada mes sin mejoras es un mes de oportunidades perdidas.</p>
+    </div>
+    <div class="consequences-grid">
+      <div class="consequence-list">
+        <div class="consequence-item">
+          <div class="consequence-marker">📊</div>
+          <div>
+            <h4>Pierdes posiciones en Google</h4>
+            <p>Tu competencia publica, optimiza y escala contenido. Tú te quedas donde estabas — o peor, bajas.</p>
+          </div>
+        </div>
+        <div class="consequence-item">
+          <div class="consequence-marker">💸</div>
+          <div>
+            <h4>Tu coste de adquisición sube</h4>
+            <p>Una web que no convierte te obliga a invertir más en publicidad para conseguir los mismos resultados.</p>
+          </div>
+        </div>
+        <div class="consequence-item">
+          <div class="consequence-marker">🚪</div>
+          <div>
+            <h4>Los visitantes se van sin contactar</h4>
+            <p>CTAs poco claros, formularios escondidos o páginas lentas hacen que los usuarios abandonen antes de convertir.</p>
+          </div>
+        </div>
+        <div class="consequence-item">
+          <div class="consequence-marker">⏰</div>
+          <div>
+            <h4>Acumulas deuda técnica</h4>
+            <p>Cuanto más tiempo sin mejoras, más costoso será el rediseño completo que terminarás necesitando.</p>
+          </div>
+        </div>
+        <div class="consequence-item">
+          <div class="consequence-marker">🏢</div>
+          <div>
+            <h4>Tu imagen de marca se degrada</h4>
+            <p>Una web desactualizada transmite que tu empresa no innova. La primera impresión digital importa.</p>
+          </div>
+        </div>
+      </div>
+      <div class="consequence-visual">
+        <h3 style="margin-bottom:24px;font-size:1rem;color:var(--color-primary)">Rendimiento web sin optimización continua</h3>
+        <div class="consequence-chart">
+          <div class="consequence-bar" style="height:180px;background:var(--color-accent)"><span class="consequence-bar-label">Lanzamiento</span></div>
+          <div class="consequence-bar" style="height:150px;background:#60A5FA"><span class="consequence-bar-label">Mes 3</span></div>
+          <div class="consequence-bar" style="height:110px;background:#93C5FD"><span class="consequence-bar-label">Mes 6</span></div>
+          <div class="consequence-bar" style="height:80px;background:#BFDBFE"><span class="consequence-bar-label">Mes 9</span></div>
+          <div class="consequence-bar" style="height:50px;background:#DBEAFE"><span class="consequence-bar-label">Mes 12</span></div>
+        </div>
+        <p style="margin-top:32px;font-size:0.8125rem;color:var(--color-text-secondary)">El rendimiento cae progresivamente sin mejoras activas</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 4. PRESENTACIÓN DEL SERVICIO ═══════════════════════ -->
+<section class="service" id="servicio">
+  <div class="container">
+    <div class="service-grid">
+      <div>
+        <span class="section-label">La solución</span>
+        <h2 class="section-title">Un equipo que mejora tu web cada mes, de forma estratégica</h2>
+        <p class="section-subtitle" style="margin-bottom:32px">Web Evolution Program no es un mantenimiento. Es un servicio de mejora continua donde combinamos visión estratégica con ejecución técnica para que tu web evolucione mes a mes.</p>
+        <a href="#contacto" class="btn btn-primary btn-arrow">Quiero saber más</a>
+      </div>
+      <div class="service-features">
+        <div class="service-feature">
+          <div class="service-feature-icon">🔍</div>
+          <div>
+            <h4>Auditoría permanente</h4>
+            <p>Analizamos métricas, comportamiento de usuarios y rendimiento técnico de forma continua.</p>
+          </div>
+        </div>
+        <div class="service-feature">
+          <div class="service-feature-icon">💡</div>
+          <div>
+            <h4>Propuestas de mejora priorizadas</h4>
+            <p>Cada mes recibes un plan de acción con las mejoras de mayor impacto para tu negocio.</p>
+          </div>
+        </div>
+        <div class="service-feature">
+          <div class="service-feature-icon">⚡</div>
+          <div>
+            <h4>Implementación incluida</h4>
+            <p>No solo recomendamos. Ejecutamos las mejoras con tu bolsa de horas mensual.</p>
+          </div>
+        </div>
+        <div class="service-feature">
+          <div class="service-feature-icon">📈</div>
+          <div>
+            <h4>Reporting de resultados</h4>
+            <p>Informe mensual con lo realizado, los resultados y los próximos pasos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 5. CÓMO FUNCIONA ═══════════════════════ -->
+<section id="como-funciona">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Proceso</span>
+      <h2 class="section-title">Cómo funciona el servicio</h2>
+      <p class="section-subtitle">Un ciclo continuo de análisis, planificación, ejecución y medición.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-step-number">1</div>
+        <h4>Auditoría inicial</h4>
+        <p>Analizamos tu web actual: rendimiento, UX, SEO, conversión y competencia.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-number">2</div>
+        <h4>Plan de mejoras</h4>
+        <p>Priorizamos las mejoras por impacto en negocio y te presentamos el plan mensual.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-number">3</div>
+        <h4>Implementación</h4>
+        <p>Ejecutamos las mejoras aprobadas con tu bolsa de horas. Tú solo validas.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-number">4</div>
+        <h4>Medición y reporte</h4>
+        <p>Medimos el impacto, documentamos los resultados y planificamos el siguiente ciclo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 6. QUÉ INCLUYE ═══════════════════════ -->
+<section class="includes" id="que-incluye">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Incluido en el servicio</span>
+      <h2 class="section-title">Todo lo que necesitas para que tu web crezca</h2>
+    </div>
+    <div class="includes-grid">
+      <div class="include-card">
+        <div class="include-icon">🎯</div>
+        <h4>Consultoría estratégica</h4>
+        <p>Reuniones mensuales para alinear las mejoras web con los objetivos de negocio.</p>
+      </div>
+      <div class="include-card">
+        <div class="include-icon">🔍</div>
+        <h4>Auditoría técnica y UX</h4>
+        <p>Revisión continua de rendimiento, accesibilidad, SEO y experiencia de usuario.</p>
+      </div>
+      <div class="include-card">
+        <div class="include-icon">📋</div>
+        <h4>Plan de mejoras priorizado</h4>
+        <p>Backlog vivo de mejoras ordenadas por impacto y esfuerzo.</p>
+      </div>
+      <div class="include-card">
+        <div class="include-icon">🛠️</div>
+        <h4>Bolsa de horas de desarrollo</h4>
+        <p>Horas dedicadas a implementar las mejoras aprobadas cada mes.</p>
+      </div>
+      <div class="include-card">
+        <div class="include-icon">📊</div>
+        <h4>Analítica y tracking</h4>
+        <p>Configuración y seguimiento de eventos, conversiones y embudos.</p>
+      </div>
+      <div class="include-card">
+        <div class="include-icon">📈</div>
+        <h4>Reporting mensual</h4>
+        <p>Informe con métricas, mejoras realizadas, resultados y próximos pasos.</p>
+      </div>
+      <div class="include-card">
+        <div class="include-icon">🧪</div>
+        <h4>Tests A/B</h4>
+        <p>Experimentación controlada para validar cambios antes de implementarlos definitivamente.</p>
+      </div>
+      <div class="include-card">
+        <div class="include-icon">🔒</div>
+        <h4>Seguridad y actualizaciones</h4>
+        <p>Parches de seguridad, actualizaciones de CMS y monitorización de uptime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 7. EJEMPLOS DE MEJORAS ═══════════════════════ -->
+<section id="ejemplos">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Ejemplos reales</span>
+      <h2 class="section-title">Mejoras que realizamos cada mes</h2>
+      <p class="section-subtitle">Cada web es diferente, pero estas son algunas de las mejoras más habituales.</p>
+    </div>
+    <div class="examples-grid">
+      <div class="example-card">
+        <span class="example-tag tag-cro">CRO</span>
+        <h4>Rediseño de formularios de contacto</h4>
+        <p>Simplificar campos, mejorar el copy y añadir microcopy para aumentar la tasa de envío.</p>
+      </div>
+      <div class="example-card">
+        <span class="example-tag tag-seo">SEO</span>
+        <h4>Optimización de páginas de servicio</h4>
+        <p>Mejorar títulos, meta descriptions, estructura de encabezados y enlazado interno.</p>
+      </div>
+      <div class="example-card">
+        <span class="example-tag tag-ux">UX</span>
+        <h4>Reestructuración de la navegación</h4>
+        <p>Simplificar menús y crear rutas claras hacia las páginas que más convierten.</p>
+      </div>
+      <div class="example-card">
+        <span class="example-tag tag-performance">Rendimiento</span>
+        <h4>Optimización de velocidad de carga</h4>
+        <p>Compresión de imágenes, lazy loading, caché y optimización de código.</p>
+      </div>
+      <div class="example-card">
+        <span class="example-tag tag-content">Contenido</span>
+        <h4>Creación de landing pages específicas</h4>
+        <p>Páginas dedicadas a servicios o campañas con copy persuasivo y CTAs optimizados.</p>
+      </div>
+      <div class="example-card">
+        <span class="example-tag tag-cro">CRO</span>
+        <h4>Implementación de social proof</h4>
+        <p>Testimonios, casos de éxito, logos de clientes y badges de confianza en puntos clave.</p>
+      </div>
+      <div class="example-card">
+        <span class="example-tag tag-ux">UX</span>
+        <h4>Mejora de la versión móvil</h4>
+        <p>Adaptar la experiencia mobile para los flujos de conversión más importantes.</p>
+      </div>
+      <div class="example-card">
+        <span class="example-tag tag-seo">SEO</span>
+        <h4>Implementación de datos estructurados</h4>
+        <p>Schema markup para mejorar la visibilidad en resultados de búsqueda con rich snippets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 8. BENEFICIOS ═══════════════════════ -->
+<section class="benefits" id="beneficios">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Beneficios</span>
+      <h2 class="section-title">Lo que gana tu negocio</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-number">01</div>
+        <h4>Más leads cualificados</h4>
+        <p>Cada mejora está orientada a generar más contactos comerciales desde la web. Más formularios, más llamadas, más oportunidades.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-number">02</div>
+        <h4>Mejor posicionamiento SEO</h4>
+        <p>Mejoras continuas en contenido, velocidad y estructura que hacen que Google te posicione mejor cada mes.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-number">03</div>
+        <h4>Mayor retorno de tu inversión web</h4>
+        <p>Tu web ya existe. En lugar de rehacerla cada 3 años, la evolucionas constantemente por una fracción del coste.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-number">04</div>
+        <h4>Sin gestión interna</h4>
+        <p>Nosotros analizamos, proponemos y ejecutamos. Tu equipo solo aprueba y valida. Sin carga operativa adicional.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-number">05</div>
+        <h4>Decisiones basadas en datos</h4>
+        <p>Cada propuesta de mejora está respaldada por analítica, heatmaps y datos reales de comportamiento de usuarios.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-number">06</div>
+        <h4>Ventaja competitiva real</h4>
+        <p>Mientras tu competencia tiene una web estática, la tuya mejora cada mes. La distancia se hace cada vez mayor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 9. PLANES ═══════════════════════ -->
+<section class="pricing" id="planes">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Planes</span>
+      <h2 class="section-title">Elige el nivel de evolución que necesitas</h2>
+      <p class="section-subtitle">Todos los planes incluyen consultoría estratégica + implementación técnica.</p>
+    </div>
+    <div class="pricing-grid">
+      <!-- START -->
+      <div class="pricing-card">
+        <div class="pricing-name">Start</div>
+        <div class="pricing-hours">4h <span>/ mes</span></div>
+        <p class="pricing-desc">Mantenimiento y pequeñas mejoras para webs que necesitan una evolución básica.</p>
+        <ul class="pricing-features">
+          <li>Auditoría mensual básica</li>
+          <li>Plan de mejoras priorizado</li>
+          <li>4 horas de implementación</li>
+          <li>Reporting mensual</li>
+          <li>Soporte por email</li>
+        </ul>
+        <a href="#contacto" class="btn btn-secondary">Solicitar información</a>
+      </div>
+      <!-- GROWTH -->
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Más popular</div>
+        <div class="pricing-name">Growth</div>
+        <div class="pricing-hours">10h <span>/ mes</span></div>
+        <p class="pricing-desc">Optimización continua para webs que quieren crecer activamente en conversión y tráfico.</p>
+        <ul class="pricing-features">
+          <li>Auditoría técnica + UX mensual</li>
+          <li>Consultoría estratégica mensual</li>
+          <li>10 horas de implementación</li>
+          <li>Tests A/B incluidos</li>
+          <li>Reporting avanzado con KPIs</li>
+          <li>Reunión mensual de seguimiento</li>
+          <li>Soporte prioritario</li>
+        </ul>
+        <a href="#contacto" class="btn btn-primary btn-arrow">Solicitar reunión</a>
+      </div>
+      <!-- SCALE -->
+      <div class="pricing-card">
+        <div class="pricing-name">Scale</div>
+        <div class="pricing-hours">20h <span>/ mes</span></div>
+        <p class="pricing-desc">Evolución activa y desarrollo continuo para webs con ambición de crecimiento acelerado.</p>
+        <ul class="pricing-features">
+          <li>Auditoría completa continua</li>
+          <li>Consultoría estratégica bisemanal</li>
+          <li>20 horas de implementación</li>
+          <li>Tests A/B + personalización</li>
+          <li>Reporting avanzado + dashboard</li>
+          <li>Reunión bisemanal de seguimiento</li>
+          <li>Account manager dedicado</li>
+          <li>Soporte prioritario + emergencias</li>
+        </ul>
+        <a href="#contacto" class="btn btn-secondary">Solicitar información</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 10. COMPARATIVA ═══════════════════════ -->
+<section id="comparativa">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Comparativa</span>
+      <h2 class="section-title">Compara los planes en detalle</h2>
+    </div>
+    <div class="comparison-wrapper">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Característica</th>
+            <th>Start</th>
+            <th>Growth</th>
+            <th>Scale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Horas mensuales</td><td>4h</td><td>10h</td><td>20h</td></tr>
+          <tr><td>Auditoría técnica</td><td><span class="check">✓</span> Básica</td><td><span class="check">✓</span> Completa</td><td><span class="check">✓</span> Continua</td></tr>
+          <tr><td>Auditoría UX</td><td><span class="cross">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>Consultoría estratégica</td><td><span class="cross">—</span></td><td>Mensual</td><td>Bisemanal</td></tr>
+          <tr><td>Plan de mejoras priorizado</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>Tests A/B</td><td><span class="cross">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>Personalización de contenido</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>Reporting</td><td>Básico</td><td>Avanzado</td><td>Avanzado + Dashboard</td></tr>
+          <tr><td>Reuniones de seguimiento</td><td><span class="cross">—</span></td><td>Mensual</td><td>Bisemanal</td></tr>
+          <tr><td>Account manager dedicado</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>Soporte de emergencias</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>Horas acumulables</td><td><span class="cross">—</span></td><td><span class="check">✓</span> 1 mes</td><td><span class="check">✓</span> 2 meses</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 11. CASO DE USO ═══════════════════════ -->
+<section class="case-study" id="caso-de-uso">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Caso real</span>
+      <h2 class="section-title">Cómo evoluciona una web en 6 meses</h2>
+      <p class="section-subtitle">Ejemplo de evolución con el plan Growth (10h/mes).</p>
+    </div>
+    <div class="case-grid">
+      <div>
+        <div class="case-context">
+          <h3>Contexto del proyecto</h3>
+          <p style="font-size:0.9375rem;color:var(--color-text-secondary);margin-bottom:16px">Empresa B2B de servicios tecnológicos. Web corporativa en WordPress con 3 años de antigüedad. Recibía 2.000 visitas/mes y generaba 8 leads mensuales.</p>
+          <p style="font-size:0.9375rem;color:var(--color-text-secondary)"><strong style="color:var(--color-text)">Objetivo:</strong> Aumentar la generación de leads sin rediseñar la web desde cero.</p>
+        </div>
+        <div class="case-results">
+          <div class="case-result">
+            <div class="case-result-value">+156%</div>
+            <div class="case-result-label">Tráfico orgánico</div>
+          </div>
+          <div class="case-result">
+            <div class="case-result-value">+312%</div>
+            <div class="case-result-label">Leads mensuales</div>
+          </div>
+          <div class="case-result">
+            <div class="case-result-value">-47%</div>
+            <div class="case-result-label">Tasa de rebote</div>
+          </div>
+          <div class="case-result">
+            <div class="case-result-value">1.9s</div>
+            <div class="case-result-label">Tiempo de carga</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-timeline">
+        <div class="timeline-item">
+          <div class="timeline-month">Mes 1</div>
+          <h4>Auditoría completa + Quick wins</h4>
+          <p>Optimización de velocidad, corrección de errores SEO críticos y mejora de CTAs principales.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-month">Mes 2</div>
+          <h4>Optimización de conversión</h4>
+          <p>Rediseño de formularios, implementación de social proof y mejora de páginas de servicio.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-month">Mes 3</div>
+          <h4>Estrategia de contenido SEO</h4>
+          <p>Creación de landing pages para servicios clave y optimización de metadatos.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-month">Mes 4</div>
+          <h4>Tests A/B en páginas clave</h4>
+          <p>Experimentación en homepage y páginas de servicio. Validación de hipótesis con datos reales.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-month">Mes 5</div>
+          <h4>Personalización y nurturing</h4>
+          <p>Implementación de contenido dinámico y flujos de email para leads capturados.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-month">Mes 6</div>
+          <h4>Escalado y automatización</h4>
+          <p>Dashboard de resultados, automatizaciones de seguimiento y planificación del siguiente trimestre.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 12. DIFERENCIADORES ═══════════════════════ -->
+<section class="diff" id="diferencia">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">La diferencia</span>
+      <h2 class="section-title">Esto no es un mantenimiento web</h2>
+      <p class="section-subtitle">Comparamos nuestro enfoque con lo que ofrecen la mayoría de agencias.</p>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card traditional">
+        <h3><span style="font-size:1.5rem">🔧</span> Mantenimiento tradicional</h3>
+        <ul class="diff-list">
+          <li><span>✕</span> Se limita a actualizar plugins y CMS</li>
+          <li><span>✕</span> Sin análisis de rendimiento ni conversión</li>
+          <li><span>✕</span> Reactivo: solo actúa cuando algo se rompe</li>
+          <li><span>✕</span> Sin estrategia ni visión de negocio</li>
+          <li><span>✕</span> Sin reporting ni medición de resultados</li>
+          <li><span>✕</span> La web se queda igual mes tras mes</li>
+          <li><span>✕</span> El valor decrece con el tiempo</li>
+        </ul>
+      </div>
+      <div class="diff-card evolution">
+        <h3><span style="font-size:1.5rem">🚀</span> Web Evolution Program</h3>
+        <ul class="diff-list">
+          <li><span>✓</span> Auditoría continua de UX, SEO y conversión</li>
+          <li><span>✓</span> Mejoras priorizadas por impacto en negocio</li>
+          <li><span>✓</span> Proactivo: detecta oportunidades cada mes</li>
+          <li><span>✓</span> Consultoría estratégica incluida</li>
+          <li><span>✓</span> Reporting con KPIs y métricas de negocio</li>
+          <li><span>✓</span> La web mejora visiblemente cada mes</li>
+          <li><span>✓</span> El valor se acumula con el tiempo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 13. PROCESO MENSUAL ═══════════════════════ -->
+<section id="proceso-mensual" style="background:var(--color-surface)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Ciclo mensual</span>
+      <h2 class="section-title">Tu web mejora cada semana</h2>
+      <p class="section-subtitle">Así es un mes tipo dentro del programa.</p>
+    </div>
+    <div class="monthly-grid">
+      <div class="monthly-card">
+        <div class="monthly-icon">🔍</div>
+        <div class="monthly-week">Semana 1</div>
+        <h4>Análisis y auditoría</h4>
+        <p>Revisamos métricas, analítica, heatmaps y comportamiento de usuarios del mes anterior.</p>
+      </div>
+      <div class="monthly-card">
+        <div class="monthly-icon">📋</div>
+        <div class="monthly-week">Semana 2</div>
+        <h4>Plan de acción</h4>
+        <p>Presentamos el plan de mejoras priorizado y alineamos contigo las acciones del mes.</p>
+      </div>
+      <div class="monthly-card">
+        <div class="monthly-icon">⚡</div>
+        <div class="monthly-week">Semana 3</div>
+        <h4>Implementación</h4>
+        <p>Ejecutamos las mejoras aprobadas: diseño, desarrollo, contenido, SEO.</p>
+      </div>
+      <div class="monthly-card">
+        <div class="monthly-icon">📊</div>
+        <div class="monthly-week">Semana 4</div>
+        <h4>Medición y reporte</h4>
+        <p>Medimos el impacto, documentamos resultados y planificamos el siguiente ciclo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 14. ROADMAP ═══════════════════════ -->
+<section class="roadmap" id="roadmap">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Roadmap</span>
+      <h2 class="section-title">La evolución de tu web, trimestre a trimestre</h2>
+      <p class="section-subtitle">Una visión clara de cómo tu web crece de forma progresiva.</p>
+    </div>
+    <div class="roadmap-grid">
+      <div class="roadmap-card">
+        <div class="roadmap-phase">Trimestre 1 — Cimientos</div>
+        <h4>Fundamentos y quick wins</h4>
+        <p>Establecemos las bases técnicas y capturamos las mejoras de impacto inmediato.</p>
+        <ul>
+          <li>Auditoría inicial completa</li>
+          <li>Optimización de velocidad</li>
+          <li>Corrección de errores SEO</li>
+          <li>Mejora de CTAs principales</li>
+        </ul>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-phase">Trimestre 2 — Crecimiento</div>
+        <h4>Conversión y contenido</h4>
+        <p>Enfocamos las mejoras en generar más leads y mejorar el posicionamiento orgánico.</p>
+        <ul>
+          <li>Optimización de formularios</li>
+          <li>Landing pages de servicio</li>
+          <li>Implementación de tracking</li>
+          <li>Primeros tests A/B</li>
+        </ul>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-phase">Trimestre 3 — Optimización</div>
+        <h4>Datos y experimentación</h4>
+        <p>Usamos los datos acumulados para tomar decisiones de mejora basadas en evidencia.</p>
+        <ul>
+          <li>Tests A/B avanzados</li>
+          <li>Personalización de contenido</li>
+          <li>Optimización de embudos</li>
+          <li>Estrategia de contenidos</li>
+        </ul>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-phase">Trimestre 4 — Escalado</div>
+        <h4>Automatización y escala</h4>
+        <p>Automatizamos procesos y escalamos las mejoras que han demostrado resultados.</p>
+        <ul>
+          <li>Automatizaciones de marketing</li>
+          <li>Dashboard de resultados</li>
+          <li>Integraciones avanzadas</li>
+          <li>Plan estratégico año 2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 15. OBJECIONES ═══════════════════════ -->
+<section class="objections" id="objeciones">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Resolvemos tus dudas</span>
+      <h2 class="section-title">Objeciones que escuchamos (y nuestras respuestas)</h2>
+    </div>
+    <div class="objections-grid">
+      <div class="objection-card">
+        <div class="objection-q"><span>💬</span> "Ya tenemos un mantenimiento web contratado"</div>
+        <p class="objection-a">Un mantenimiento actualiza plugins y hace backups. Nosotros analizamos, proponemos e implementamos mejoras que generan negocio. Son servicios complementarios, no sustitutivos.</p>
+      </div>
+      <div class="objection-card">
+        <div class="objection-q"><span>💬</span> "4 horas al mes no parece mucho"</div>
+        <p class="objection-a">4 horas de trabajo estratégico y enfocado pueden transformar una web. No se trata de cantidad sino de priorizar las mejoras con mayor impacto en conversión y negocio.</p>
+      </div>
+      <div class="objection-card">
+        <div class="objection-q"><span>💬</span> "Preferimos hacer un rediseño completo"</div>
+        <p class="objection-a">Un rediseño cuesta 5-10x más, tarda meses y resetea tu SEO. Con mejora continua, evolucionas sin riesgo, mides cada cambio y pagas una fracción.</p>
+      </div>
+      <div class="objection-card">
+        <div class="objection-q"><span>💬</span> "Nuestro equipo interno puede hacerlo"</div>
+        <p class="objection-a">¿Lo está haciendo? La realidad es que el día a día consume al equipo. Nosotros aportamos foco, metodología y ejecución dedicada sin sumar carga a tu equipo.</p>
+      </div>
+      <div class="objection-card">
+        <div class="objection-q"><span>💬</span> "¿Cómo sé que funciona?"</div>
+        <p class="objection-a">Cada mes recibes un informe con las mejoras realizadas y su impacto medible. Si en 3 meses no ves resultados, revisamos la estrategia contigo sin coste adicional.</p>
+      </div>
+      <div class="objection-card">
+        <div class="objection-q"><span>💬</span> "¿Y si no hay nada que mejorar?"</div>
+        <p class="objection-a">En más de 120 auditorías nunca nos hemos quedado sin mejoras. Siempre hay oportunidades en UX, velocidad, conversión, SEO o contenido. Siempre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 16. FAQ ═══════════════════════ -->
+<section id="faq" style="background:var(--color-surface)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Preguntas frecuentes</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">¿Qué tecnologías soportáis?</button>
+        <div class="faq-answer"><div class="faq-answer-inner">Trabajamos con WordPress, Webflow, Shopify, Next.js, Nuxt.js y cualquier CMS o framework moderno. Si tu web está construida con tecnología personalizada, también podemos adaptarnos.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Hay permanencia mínima?</button>
+        <div class="faq-answer"><div class="faq-answer-inner">Recomendamos un compromiso mínimo de 3 meses para poder ver resultados significativos, pero no hay permanencia obligatoria. Puedes cancelar con un preaviso de 30 días.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Las horas no utilizadas se acumulan?</button>
+        <div class="faq-answer"><div class="faq-answer-inner">En el plan Growth las horas se acumulan hasta 1 mes, y en el plan Scale hasta 2 meses. En el plan Start las horas no son acumulables.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Quién decide qué mejoras se implementan?</button>
+        <div class="faq-answer"><div class="faq-answer-inner">Nosotros analizamos y proponemos un plan priorizado. Tú apruebas las acciones antes de que las implementemos. Siempre tienes la última palabra.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Necesito dar accesos a mi web?</button>
+        <div class="faq-answer"><div class="faq-answer-inner">Sí, necesitaremos acceso al panel de administración del CMS, a Google Analytics / Search Console y al hosting. Firmamos un NDA y trabajamos con permisos de usuario específicos.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Puedo cambiar de plan?</button>
+        <div class="faq-answer"><div class="faq-answer-inner">Sí, puedes escalar o reducir tu plan en cualquier momento. El cambio se aplica en el siguiente ciclo mensual.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Qué pasa si necesito más horas un mes puntual?</button>
+        <div class="faq-answer"><div class="faq-answer-inner">Puedes contratar horas adicionales bajo demanda. Te informamos del coste antes de ejecutar cualquier hora extra para que siempre tengas el control.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Cómo empezamos?</button>
+        <div class="faq-answer"><div class="faq-answer-inner">Agendamos una reunión de 30 minutos para entender tu web y tus objetivos. Si encajamos, hacemos una auditoría inicial y arrancamos el primer mes con un plan de mejoras concreto.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 17. CTA FINAL ═══════════════════════ -->
+<section class="cta-final" id="contacto">
+  <div class="container">
+    <span class="section-label" style="background:rgba(255,255,255,0.1);color:#93C5FD">Da el primer paso</span>
+    <h2 class="section-title">Tu web tiene potencial sin explotar.<br>Descúbrelo en una reunión de 30 minutos.</h2>
+    <p>Sin compromiso. Analizamos tu situación actual y te decimos exactamente qué mejoraríamos y qué resultados puedes esperar.</p>
+    <div class="cta-final-buttons">
+      <a href="#" class="btn btn-white btn-arrow" onclick="return false;">Agendar reunión estratégica gratuita</a>
+      <a href="#" class="btn btn-secondary" style="color:#fff;border-color:rgba(255,255,255,0.3)" onclick="return false;">Descargar caso de estudio</a>
+    </div>
+    <div class="cta-trust">
+      <span>✓ Sin compromiso</span>
+      <span>✓ Reunión de 30 min</span>
+      <span>✓ Análisis personalizado</span>
+      <span>✓ Plan de acción incluido</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <p style="margin-bottom:8px"><strong style="color:#fff">Web Evolution Program</strong></p>
+    <p>Consultoría + implementación continua para que tu web mejore cada mes.</p>
+  </div>
+</footer>
+
+<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+<!--
+═══════════════════════════════════════════════════════════════
+  SECCIÓN 18: ESTRUCTURA VISUAL SUGERIDA
+═══════════════════════════════════════════════════════════════
+
+  Sección              | Fondo                | Layout
+  ─────────────────────┼──────────────────────┼──────────────────
+  Nav                  | Blanco + blur        | Logo + CTA fijo
+  Hero                 | Gradiente azul claro | 2 columnas
+  Problema             | Azul oscuro          | 3 cards
+  Consecuencias        | Blanco               | 2 columnas
+  Servicio             | Gris claro           | 2 columnas
+  Proceso              | Blanco               | 4 pasos horizontal
+  Qué incluye          | Gris claro           | Grid 4x2
+  Ejemplos             | Blanco               | Grid 4x2 con tags
+  Beneficios           | Gradiente azul claro | Grid 3x2
+  Planes               | Gris claro           | 3 columnas
+  Comparativa          | Blanco               | Tabla
+  Caso de uso          | Gradiente azul claro | 2 columnas + timeline
+  Diferenciadores      | Gris claro           | 2 columnas vs
+  Proceso mensual      | Gris claro           | 4 cards semana
+  Roadmap              | Azul oscuro          | 4 columnas
+  Objeciones           | Gris claro           | Grid 3x2
+  FAQ                  | Gris claro           | Acordeón centrado
+  CTA Final            | Gradiente azul       | Centrado
+  Footer               | Negro                | Centrado
+
+═══════════════════════════════════════════════════════════════
+  SECCIÓN 19: RECOMENDACIONES UX PARA CONVERSIÓN
+═══════════════════════════════════════════════════════════════
+
+  1. CTA fijo en la navegación — siempre visible al hacer scroll
+  2. Máximo 2 CTAs en el hero para no diluir la atención
+  3. Alternar fondos claros/oscuros entre secciones para guiar lectura
+  4. Social proof temprano (datos en el hero)
+  5. Pricing visible sin scroll excesivo — anclar desde el menú
+  6. FAQ en acordeón para no saturar con texto
+  7. Mobile first: CTAs de ancho completo y textos concisos en móvil
+  8. Micro-animaciones sutiles (hover en cards, transiciones suaves)
+  9. Formulario de contacto inline en el CTA final (no redirigir)
+  10. Sticky CTA en mobile (barra inferior con botón de contacto)
+  11. Loading progresivo de imágenes (lazy load)
+  12. Contraste alto en botones principales (ratio WCAG AA mínimo)
+  13. Testimonios con foto y nombre real junto a los planes
+  14. Chat en vivo o WhatsApp como canal de contacto secundario
+  15. Exit intent popup con oferta de auditoría gratuita
+
+═══════════════════════════════════════════════════════════════
+  SECCIÓN 20: PALABRAS CLAVE SEO RECOMENDADAS
+═══════════════════════════════════════════════════════════════
+
+  Principal:
+  - consultoría web continua
+  - optimización web mensual
+  - mejora continua web
+
+  Secundarias:
+  - auditoría web recurrente
+  - bolsa de horas web
+  - servicio mejora web
+  - optimización conversión web
+  - evolución web corporativa
+  - mantenimiento web avanzado
+  - consultoría digital para empresas
+  - CRO web B2B
+  - mejora rendimiento web
+  - agencia optimización web
+
+  Long tail:
+  - servicio de mejora continua de página web para empresas
+  - consultoría web mensual con implementación incluida
+  - cómo mejorar mi web corporativa cada mes
+  - bolsa de horas mensuales para mejorar web
+  - auditoría y optimización web recurrente para pymes
+
+═══════════════════════════════════════════════════════════════
+  SECCIÓN 21: METATITLE Y METADESCRIPTION
+═══════════════════════════════════════════════════════════════
+
+  <title>
+  Web Evolution Program — Consultoría + Implementación continua para tu web
+  </title>
+
+  <meta name="description">
+  Analizamos, proponemos e implementamos mejoras en tu web cada mes.
+  Consultoría estratégica + bolsa de horas para que tu web evolucione
+  y convierta más. Solicita reunión.
+  </meta>
+
+═══════════════════════════════════════════════════════════════
+  SECCIÓN 22: IDEAS PARA MICROCOPYS EN BOTONES Y CTAs
+═══════════════════════════════════════════════════════════════
+
+  CTAs principales:
+  - "Agendar reunión estratégica" (hero)
+  - "Quiero mejorar mi web" (servicio)
+  - "Ver cómo funciona" (hero secundario)
+  - "Solicitar reunión" (planes - Growth)
+  - "Solicitar información" (planes - Start/Scale)
+  - "Agendar reunión estratégica gratuita" (CTA final)
+  - "Descargar caso de estudio" (CTA final secundario)
+
+  Microcopys de refuerzo bajo botones:
+  - "Sin compromiso · 30 minutos"
+  - "Te respondemos en menos de 24h"
+  - "Solo para empresas con web activa"
+  - "+120 empresas ya confían en nosotros"
+  - "Incluye análisis personalizado de tu web"
+
+  CTAs para email / nurturing:
+  - "Descubre qué mejoraríamos en tu web"
+  - "Solicita tu auditoría exprés gratuita"
+  - "¿Tu web está rindiendo al máximo?"
+
+  Hover / tooltip microcopys:
+  - "30 min que pueden cambiar tu web"
+  - "Sin letra pequeña"
+  - "El primer paso hacia una web que crece"
+
+═══════════════════════════════════════════════════════════════
+-->
+
+</body>
+</html>
