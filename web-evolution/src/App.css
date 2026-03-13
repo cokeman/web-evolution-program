@@ -823,14 +823,18 @@ section { padding: 120px 0; position: relative; overflow: hidden; }
     display: flex; 
     overflow-x: auto; 
     scroll-snap-type: x mandatory; 
-    margin: 0 -24px; 
-    padding: 0 24px 24px; 
+    margin: 0; 
+    padding: 0 0 16px 0; 
     gap: 16px; 
     scrollbar-width: none; 
     -webkit-overflow-scrolling: touch; 
   }
   .monthly-grid::-webkit-scrollbar { display: none; }
-  .monthly-card { min-width: 85vw; scroll-snap-align: center; flex-shrink: 0; }
+  .monthly-card { 
+    width: 100%; min-width: 100%; max-width: 100%;
+    margin: 0;
+    scroll-snap-align: center; flex-shrink: 0; 
+  }
   .monthly-dots { 
     display: flex; justify-content: center; gap: 8px; margin-top: 16px; 
   }
