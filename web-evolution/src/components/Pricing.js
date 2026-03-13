@@ -10,6 +10,8 @@ function AntigravityCanvas() {
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
+    // Skip during pre-rendering (react-snap)
+    if (navigator.userAgent.indexOf('ReactSnap') !== -1) return;
 
     let isPaused = false;
     let particles = [];
