@@ -16,7 +16,7 @@ export default function Objections() {
         <Reveal>
           <div className="section-header">
             <span className="section-label">Resolvemos tus dudas</span>
-            <h2 className="section-title">Objeciones que escuchamos (y nuestras respuestas)</h2>
+            <h2 className="section-title">¡Ya claro!. Muy bonito pero...</h2>
           </div>
         </Reveal>
         <Reveal delay={150}>
