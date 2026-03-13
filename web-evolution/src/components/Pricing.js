@@ -124,7 +124,7 @@ const plans = [
     name: 'Scale', hours: '20h',
     desc: 'Evolución activa y desarrollo continuo para webs con ambición de crecimiento acelerado.',
     featured: false,
-    features: ['Auditoría completa continua', 'Consultoría estratégica bisemanal', '20 horas de implementación', 'Tests A/B + personalización', 'Reporting avanzado + dashboard', 'Reunión bisemanal de seguimiento', 'Account manager dedicado', 'Soporte prioritario + emergencias'],
+    features: ['Auditoría completa continua', 'Consultoría estratégica mensual', '20 horas de implementación', 'Tests A/B + personalización', 'Reporting avanzado + dashboard', 'Reunión mensual de seguimiento', 'Account manager dedicado', 'Soporte prioritario + emergencias'],
   },
 ];
 
