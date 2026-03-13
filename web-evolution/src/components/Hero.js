@@ -28,7 +28,7 @@ export default function Hero() {
             <p className="hero-desc">Consultoría + implementación continua para mejorar el rendimiento de tu web. Analizamos, proponemos y ejecutamos mejoras cada mes para que tu web genere más negocio.</p>
             <div className="hero-ctas">
               <a href="/contacto" className="btn btn-primary btn-arrow btn-glow">Agendar reunión estratégica</a>
-              <a href="/contacto" className="btn btn-glass">Ver cómo funciona</a>
+              <a href="#como-funciona" className="btn btn-glass">Ver cómo funciona</a>
             </div>
             <div className="hero-proof">
               {proofItems.map((item, i) => (
