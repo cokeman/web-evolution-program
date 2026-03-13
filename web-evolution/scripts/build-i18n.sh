@@ -8,7 +8,10 @@ REACT_APP_META_DESC="Servicio de mejora continua para tu web. Consultoría + imp
 REACT_APP_NOSCRIPT="Necesitas activar JavaScript para ver esta página." \
 npx react-scripts build
 
-# Save entire Spanish build to temp folder
+echo "🇪🇸 Pre-rendering Spanish..."
+npx react-snap
+
+# Save Spanish pre-rendered build
 cp -r build build-es-temp
 
 echo "🇬🇧 Building English version..."
@@ -18,7 +21,10 @@ REACT_APP_META_DESC="Continuous improvement service for your website. Monthly co
 REACT_APP_NOSCRIPT="You need to enable JavaScript to view this page." \
 npx react-scripts build
 
-# English build is now in build/index.html — copy it as index-en.html
+echo "🇬🇧 Pre-rendering English..."
+npx react-snap
+
+# English pre-rendered build is now in build/index.html — copy as index-en.html
 cp build/index.html build/index-en.html
 
 # Restore Spanish index.html as the main one
@@ -28,5 +34,5 @@ cp build-es-temp/index.html build/index.html
 rm -rf build-es-temp
 
 echo "✅ Build complete!"
-echo "   → build/index.html    (Spanish)"
-echo "   → build/index-en.html (English)"
+echo "   → build/index.html    (Spanish — pre-rendered)"
+echo "   → build/index-en.html (English — pre-rendered)"
