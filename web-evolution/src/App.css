@@ -444,6 +444,50 @@ section { padding: 120px 0; position: relative; overflow: hidden; }
 .example-card p { font-size: 0.8125rem; color: var(--color-text-secondary); }
 
 /* ═══════════════════════════════════════
+   AI SERVICES — Dark navy with purple accent
+   ═══════════════════════════════════════ */
+.ai-services {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #1A1050 100%);
+  color: #fff;
+  position: relative;
+}
+.ai-services::before {
+  content: ''; position: absolute; top: -80px; right: -80px;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: rgba(124, 77, 255, 0.15); filter: blur(100px); pointer-events: none;
+}
+.ai-services::after {
+  content: ''; position: absolute; bottom: -60px; left: -60px;
+  width: 300px; height: 300px; border-radius: 50%;
+  background: rgba(0, 229, 196, 0.1); filter: blur(80px); pointer-events: none;
+}
+.ai-services .section-label { background: rgba(124, 77, 255, 0.2); color: var(--color-purple); }
+.ai-services .section-title { color: #fff; }
+.ai-services .section-subtitle { color: rgba(255, 255, 255, 0.6); }
+.ai-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  position: relative; z-index: 1;
+}
+.ai-card {
+  background: rgba(255, 255, 255, 0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius); padding: 32px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.ai-card:hover { transform: translateY(-4px); border-color: rgba(124, 77, 255, 0.3); }
+.ai-card-icon {
+  width: 56px; height: 56px; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ai-card:hover .ai-card-icon { transform: scale(1.12) rotate(4deg); }
+.ai-card h4 { color: #fff; font-size: 1.0625rem; margin-bottom: 8px; }
+.ai-card p { color: rgba(255, 255, 255, 0.6); font-size: 0.875rem; line-height: 1.6; }
+.ai-cta-wrapper {
+  text-align: center; margin-top: 56px; position: relative; z-index: 1;
+}
+
+/* ═══════════════════════════════════════
    BENEFITS — Dark navy (like Problem)
    ═══════════════════════════════════════ */
 .benefits {
@@ -834,7 +878,8 @@ section { padding: 120px 0; position: relative; overflow: hidden; }
 .problem-card:hover .icon-animated,
 .include-card:hover .icon-animated,
 .service-feature:hover .icon-animated,
-.monthly-card:hover .icon-animated {
+.monthly-card:hover .icon-animated,
+.ai-card:hover .icon-animated {
   transform: scale(1.15) translateY(-4px) rotate(-5deg);
   filter: drop-shadow(0 8px 16px rgba(255, 59, 124, 0.3));
 }
@@ -858,7 +903,7 @@ section { padding: 120px 0; position: relative; overflow: hidden; }
    RESPONSIVE
    ═══════════════════════════════════════ */
 @media (max-width: 1024px) {
-  .hero-grid, .consequences-grid, .service-grid, .case-grid, .diff-grid, .benefits-grid { grid-template-columns: 1fr; }
+  .hero-grid, .consequences-grid, .service-grid, .case-grid, .diff-grid, .benefits-grid, .ai-grid { grid-template-columns: 1fr; }
   .process-steps { grid-template-columns: repeat(2, 1fr); }
   .process-steps::before { display: none; }
   .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }

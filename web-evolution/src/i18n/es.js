@@ -95,6 +95,22 @@ const es = {
     ],
   },
 
+  // AI Services
+  ai: {
+    label: 'Inteligencia Artificial',
+    title: 'Expertos en IA al servicio de tu negocio',
+    subtitle: 'Nuestro equipo técnico domina las últimas tecnologías de inteligencia artificial. Te ayudamos a implementar soluciones IA que transforman tu operativa y multiplican tus resultados.',
+    items: [
+      { title: 'Agentes de atención al cliente', desc: 'Chatbots y asistentes IA disponibles 24/7 que resuelven consultas, cualifican leads y cierran ventas mientras tu equipo descansa.' },
+      { title: 'Agentes internos', desc: 'Automatiza procesos de RRHH, operaciones y gestión con agentes IA que trabajan como un miembro más de tu equipo.' },
+      { title: 'Bases de conocimiento IA', desc: 'Sistemas RAG que permiten a tu equipo consultar toda la documentación de la empresa al instante, con respuestas precisas y contextuales.' },
+      { title: 'Automatizaciones empresariales', desc: 'Workflows inteligentes que conectan tus herramientas, eliminan tareas repetitivas y reducen errores humanos.' },
+      { title: 'Desarrollo especializado en IA', desc: 'Soluciones a medida: integraciones con APIs de IA, fine-tuning de modelos, procesamiento de lenguaje natural y visión artificial.' },
+      { title: 'Consultoría y estrategia IA', desc: 'Auditoría de procesos, identificación de oportunidades y roadmap de implementación IA adaptado a tu negocio y presupuesto.' },
+    ],
+    cta: 'Solicitar consultoría IA',
+  },
+
   // Benefits
   benefits: {
     label: 'Beneficios',

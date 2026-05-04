@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Problem from './components/Problem';
 import Service from './components/Service';
 import CaseStudy from './components/CaseStudy';
+import AIServices from './components/AIServices';
 import Benefits from './components/Benefits';
 import Pricing from './components/Pricing';
 import Differentiators from './components/Differentiators';
@@ -19,6 +20,7 @@ function App() {
       <Problem />
       <Service />
       <CaseStudy />
+      <AIServices />
       <Benefits />
       <Pricing />
       <Differentiators />

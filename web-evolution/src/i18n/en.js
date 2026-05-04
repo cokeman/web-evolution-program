@@ -95,6 +95,22 @@ const en = {
     ],
   },
 
+  // AI Services
+  ai: {
+    label: 'Artificial Intelligence',
+    title: 'AI experts at your business\'s service',
+    subtitle: 'Our technical team masters the latest artificial intelligence technologies. We help you implement AI solutions that transform your operations and multiply your results.',
+    items: [
+      { title: 'Customer service agents', desc: 'AI chatbots and assistants available 24/7 that resolve inquiries, qualify leads, and close sales while your team rests.' },
+      { title: 'Internal agents', desc: 'Automate HR, operations, and management processes with AI agents that work as another member of your team.' },
+      { title: 'AI knowledge bases', desc: 'RAG systems that allow your team to query all company documentation instantly, with precise and contextual answers.' },
+      { title: 'Business automation', desc: 'Intelligent workflows that connect your tools, eliminate repetitive tasks, and reduce human errors.' },
+      { title: 'Specialized AI development', desc: 'Custom solutions: AI API integrations, model fine-tuning, natural language processing, and computer vision.' },
+      { title: 'AI consulting & strategy', desc: 'Process audit, opportunity identification, and AI implementation roadmap tailored to your business and budget.' },
+    ],
+    cta: 'Request AI consulting',
+  },
+
   // Benefits
   benefits: {
     label: 'Benefits',
