@@ -38,17 +38,19 @@ REACT_APP_LANG=en npm start
 ## Estructura del proyecto
 
 ```
-src/
-├── components/       # Componentes React (Nav, Hero, Pricing, FAQ, etc.)
-├── hooks/            # useScrollReveal
-├── i18n/             # Traducciones (es.js, en.js) y hook useTranslations
-├── App.js            # Composición principal de secciones
-├── App.css           # Estilos globales y por componente
-└── index.js          # Entry point con hidratación para react-snap
-scripts/
-└── build-i18n.sh     # Script de build bilingüe
-public/
-└── index.html        # Template con placeholders de idioma
+web-evolution/
+├── src/
+│   ├── components/       # Componentes React (Nav, Hero, Pricing, FAQ, etc.)
+│   ├── hooks/            # useScrollReveal
+│   ├── i18n/             # Traducciones (es.js, en.js) y hook useTranslations
+│   ├── App.js            # Composición principal de secciones
+│   ├── App.css           # Estilos globales y por componente
+│   └── index.js          # Entry point con hidratación para react-snap
+├── scripts/
+│   └── build-i18n.sh     # Script de build bilingüe
+├── public/
+│   └── index.html        # Template con placeholders de idioma
+└── build/                # Output de producción
 ```
 
 ## Secciones de la landing
@@ -69,6 +71,7 @@ El sistema es ligero y sin dependencias externas:
 El proyecto se despliega en **GitHub Pages** bajo la ruta `/web-evolution-program/`.
 
 ```bash
+cd web-evolution
 npm run build:i18n    # Genera build/ con ambos idiomas
 ```
 
