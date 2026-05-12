@@ -1,7 +1,7 @@
 import Reveal from './Reveal';
 
 const steps = [
-  { num: 1, title: 'Auditoría inicial', desc: 'Analizamos tu web actual: rendimiento, UX, SEO, conversión y competencia.' },
+  { num: 1, title: 'Auditoría inicial', desc: 'Analizamos tu web actual: rendimiento, UX, estructura, conversión y competencia.' },
   { num: 2, title: 'Plan de mejoras', desc: 'Priorizamos las mejoras por impacto en negocio y te presentamos el plan mensual.' },
   { num: 3, title: 'Implementación', desc: 'Ejecutamos las mejoras aprobadas con tu bolsa de horas. Tú solo validas.' },
   { num: 4, title: 'Medición y reporte', desc: 'Medimos el impacto, documentamos los resultados y planificamos el siguiente ciclo.' },

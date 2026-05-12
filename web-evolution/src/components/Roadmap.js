@@ -1,7 +1,7 @@
 import Reveal from './Reveal';
 
 const quarters = [
-  { phase: 'Trimestre 1 — Cimientos', title: 'Fundamentos y quick wins', desc: 'Establecemos las bases técnicas y capturamos las mejoras de impacto inmediato.', items: ['Auditoría inicial completa', 'Optimización de velocidad', 'Corrección de errores SEO', 'Mejora de CTAs principales'] },
+  { phase: 'Trimestre 1 — Cimientos', title: 'Fundamentos y quick wins', desc: 'Establecemos las bases técnicas y capturamos las mejoras de impacto inmediato.', items: ['Auditoría inicial completa', 'Optimización de velocidad', 'Ajustes de estructura técnica', 'Mejora de CTAs principales'] },
   { phase: 'Trimestre 2 — Crecimiento', title: 'Conversión y contenido', desc: 'Enfocamos las mejoras en generar más leads y mejorar el posicionamiento orgánico.', items: ['Optimización de formularios', 'Landing pages de servicio', 'Implementación de tracking', 'Primeros tests A/B'] },
   { phase: 'Trimestre 3 — Optimización', title: 'Datos y experimentación', desc: 'Usamos los datos acumulados para tomar decisiones de mejora basadas en evidencia.', items: ['Tests A/B avanzados', 'Personalización de contenido', 'Optimización de embudos', 'Estrategia de contenidos'] },
   { phase: 'Trimestre 4 — Escalado', title: 'Automatización y escala', desc: 'Automatizamos procesos y escalamos las mejoras que han demostrado resultados.', items: ['Automatizaciones de marketing', 'Dashboard de resultados', 'Integraciones avanzadas', 'Plan estratégico año 2'] },

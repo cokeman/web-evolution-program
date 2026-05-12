@@ -7,7 +7,7 @@ const items = [
   },
   { 
     icon: <svg className="icon-animated" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>, 
-    title: 'Auditoría técnica y UX', desc: 'Revisión continua de rendimiento, accesibilidad, SEO y experiencia de usuario.' 
+    title: 'Auditoría técnica y UX', desc: 'Revisión continua de rendimiento, accesibilidad, estructura web y experiencia de usuario.' 
   },
   { 
     icon: <svg className="icon-animated-bounce" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>, 

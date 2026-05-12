@@ -2,13 +2,13 @@ import Reveal from './Reveal';
 
 const examples = [
   { tag: 'CRO', tagClass: 'tag-cro', title: 'Rediseño de formularios de contacto', desc: 'Simplificar campos, mejorar el copy y añadir microcopy para aumentar la tasa de envío.' },
-  { tag: 'SEO', tagClass: 'tag-seo', title: 'Optimización de páginas de servicio', desc: 'Mejorar títulos, meta descriptions, estructura de encabezados y enlazado interno.' },
+  { tag: 'Estructura', tagClass: 'tag-seo', title: 'Optimización de páginas de servicio', desc: 'Mejorar títulos, jerarquía de encabezados, enlazado interno y estructura de contenidos para facilitar el posicionamiento orgánico.' },
   { tag: 'UX', tagClass: 'tag-ux', title: 'Reestructuración de la navegación', desc: 'Simplificar menús y crear rutas claras hacia las páginas que más convierten.' },
   { tag: 'Rendimiento', tagClass: 'tag-performance', title: 'Optimización de velocidad de carga', desc: 'Compresión de imágenes, lazy loading, caché y optimización de código.' },
   { tag: 'Contenido', tagClass: 'tag-content', title: 'Creación de landing pages específicas', desc: 'Páginas dedicadas a servicios o campañas con copy persuasivo y CTAs optimizados.' },
   { tag: 'CRO', tagClass: 'tag-cro', title: 'Implementación de social proof', desc: 'Testimonios, casos de éxito, logos de clientes y badges de confianza en puntos clave.' },
   { tag: 'UX', tagClass: 'tag-ux', title: 'Mejora de la versión móvil', desc: 'Adaptar la experiencia mobile para los flujos de conversión más importantes.' },
-  { tag: 'SEO', tagClass: 'tag-seo', title: 'Implementación de datos estructurados', desc: 'Schema markup para mejorar la visibilidad en resultados de búsqueda con rich snippets.' },
+  { tag: 'Visibilidad', tagClass: 'tag-seo', title: 'Implementación de datos estructurados', desc: 'Schema markup para mejorar la visibilidad orgánica y la claridad con la que los buscadores interpretan el contenido.' },
 ];
 
 export default function Examples() {

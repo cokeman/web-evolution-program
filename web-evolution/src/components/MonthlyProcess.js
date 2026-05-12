@@ -12,7 +12,7 @@ const weeks = [
   },
   { 
     icon: <svg className="icon-animated-spin" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-pink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>, 
-    week: 'Semana 3', title: 'Implementación', desc: 'Ejecutamos las mejoras aprobadas: diseño, desarrollo, contenido, SEO.' 
+    week: 'Semana 3', title: 'Implementación', desc: 'Ejecutamos las mejoras aprobadas: diseño, desarrollo, contenido y estructura web.' 
   },
   { 
     icon: <svg className="icon-animated-bounce" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>, 
