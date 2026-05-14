@@ -143,15 +143,15 @@ const en = {
         features: ['Technical + UX monthly audit', 'Monthly strategic consulting', '10 monthly hours for analysis, improvements, and implementation', 'A/B testing included', 'Advanced reporting + KPI', 'Dashboard', 'Monthly follow-up meeting', 'Priority support'],
       },
       {
-        name: 'Scale', hours: '22h',
+        name: 'Scale', hours: '23h',
         desc: 'Active evolution and continuous development for websites with accelerated growth ambitions.',
-        features: ['Comprehensive continuous audit', 'Monthly strategic consulting', '22 monthly hours for evolution, optimization, and implementation', 'A/B testing + personalization', 'Advanced reporting + KPI', 'Dashboard', 'Monthly follow-up meeting', 'Priority support + urgent requests'],
+        features: ['Comprehensive continuous audit', 'Monthly strategic consulting', '23 monthly hours for evolution, optimization, and implementation', 'A/B testing + personalization', 'Advanced reporting + KPI', 'Dashboard', 'Monthly follow-up meeting', 'Priority support + urgent requests'],
       },
     ],
     comparisonTitle: 'Compare plans in detail',
     tableHeaders: ['Feature', 'Start', 'Growth', 'Scale'],
     rows: [
-      { feature: 'Monthly hours', start: '4h', growth: '10h', scale: '22h' },
+      { feature: 'Monthly hours', start: '4h', growth: '10h', scale: '23h' },
       { feature: 'Technical audit', start: '✓ Basic', growth: '✓ Complete', scale: '✓ Continuous', startCheck: true, growthCheck: true, scaleCheck: true },
       { feature: 'UX audit', start: '—', growth: '✓', scale: '✓', startCross: true, growthCheck: true, scaleCheck: true },
       { feature: 'Strategic consulting', start: '—', growth: 'Monthly', scale: 'Monthly', startCross: true },

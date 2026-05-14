@@ -143,15 +143,15 @@ const es = {
         features: ['Auditoría técnica + UX mensual', 'Consultoría estratégica mensual', '10 horas mensuales para análisis, mejoras e implementación', 'Tests A/B incluidos', 'Reporting avanzado + KPI', 'Dashboard', 'Reunión mensual de seguimiento', 'Soporte prioritario'],
       },
       {
-        name: 'Scale', hours: '22h',
+        name: 'Scale', hours: '23h',
         desc: 'Evolución activa y desarrollo continuo para webs con ambición de crecimiento acelerado.',
-        features: ['Auditoría completa continua', 'Consultoría estratégica mensual', '22 horas mensuales para evolución, optimización e implementación', 'Tests A/B + personalización', 'Reporting avanzado + KPI', 'Dashboard', 'Reunión mensual de seguimiento', 'Soporte prioritario + urgente'],
+        features: ['Auditoría completa continua', 'Consultoría estratégica mensual', '23 horas mensuales para evolución, optimización e implementación', 'Tests A/B + personalización', 'Reporting avanzado + KPI', 'Dashboard', 'Reunión mensual de seguimiento', 'Soporte prioritario + urgente'],
       },
     ],
     comparisonTitle: 'Compara los planes en detalle',
     tableHeaders: ['Característica', 'Start', 'Growth', 'Scale'],
     rows: [
-      { feature: 'Horas mensuales', start: '4h', growth: '10h', scale: '22h' },
+      { feature: 'Horas mensuales', start: '4h', growth: '10h', scale: '23h' },
       { feature: 'Auditoría técnica', start: '✓ Básica', growth: '✓ Completa', scale: '✓ Continua', startCheck: true, growthCheck: true, scaleCheck: true },
       { feature: 'Auditoría UX', start: '—', growth: '✓', scale: '✓', startCross: true, growthCheck: true, scaleCheck: true },
       { feature: 'Consultoría estratégica', start: '—', growth: 'Mensual', scale: 'Mensual', startCross: true },
