@@ -128,7 +128,7 @@ const en = {
     title: 'Choose the level of evolution you need',
     subtitle: 'All plans include strategic consulting + technical implementation.',
     badge: 'Most popular',
-    ctaFeatured: 'Book a meeting',
+    ctaFeatured: 'Request information',
     ctaDefault: 'Request information',
     perMonth: '/ month',
     plans: [

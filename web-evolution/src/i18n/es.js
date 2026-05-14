@@ -128,7 +128,7 @@ const es = {
     title: 'Elige el nivel de evolución que necesitas',
     subtitle: 'Todos los planes incluyen consultoría estratégica + implementación técnica.',
     badge: 'Más popular',
-    ctaFeatured: 'Solicitar reunión',
+    ctaFeatured: 'Solicitar información',
     ctaDefault: 'Solicitar información',
     perMonth: '/ mes',
     plans: [
